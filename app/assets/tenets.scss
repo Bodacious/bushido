@@ -1,0 +1,25 @@
+.tenet {
+  
+}
+
+.tenet_example-header {
+  padding: 0.5em 0.5em;
+  color: white;
+  
+  &.is_do {
+    background-color: green;
+  }
+  
+  &.is_dont {
+    background-color: red;
+  }
+  
+}
+
+.tenet_example-snippet {
+  
+}
+
+.tenet-explanation {
+  
+}
