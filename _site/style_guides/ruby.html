@@ -31,7 +31,7 @@
 
 <p>This style guide for writing Ruby is based closely on <a href="https://github.com/bbatsov/ruby-style-guide">Bozhidar Batsov&#39;s Ruby Style Guide</a>.</p>
 
-<p>To make it easier, we&#39;ve added <span class='label label--different '>different</span> tags to the ones where our style differs.</p>
+<p>To make it easier, we&#39;ve added <span class="label label--different">different</span> tags to the ones where our style differs.</p>
 
 <h2 id="source-code-layout">Source Code Layout</h2>
 
@@ -75,7 +75,7 @@
 
 <span class="nb">puts</span> <span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span> <span class="c1"># this applies to puts in particular</span>
 </code></pre></div>
-<h3 id="use-consistent-class-naming-conventions-different">Use consistent class naming conventions  <span class='label label--different '>different</span></h3>
+<h3 id="use-consistent-class-naming-conventions-different">Use consistent class naming conventions  <span class="label label--different">different</span></h3>
 
 <p>Use the same, typical class definition, even for classes with no body </p>
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># wat?!</span>
@@ -88,7 +88,7 @@
 <span class="k">class</span> <span class="nc">FooError</span> <span class="o">&lt;</span> <span class="no">StandardError</span>
 <span class="k">end</span>
 </code></pre></div>
-<h3 id="avoid-single-line-methods-different">Avoid single-line methods  <span class='label label--different '>different</span></h3>
+<h3 id="avoid-single-line-methods-different">Avoid single-line methods  <span class="label label--different">different</span></h3>
 
 <p>Although they are somewhat popular in the wild,
 there are a few peculiarities about their definition syntax that make their
@@ -110,7 +110,7 @@ use undesirable. </p>
   <span class="n">body</span>
 <span class="k">end</span>
 </code></pre></div>
-<p>This rule also applies to empty-body methods. <span class='label label--different '>different</span></p>
+<p>This rule also applies to empty-body methods. <span class="label label--different">different</span></p>
 <div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby"><span class="c1"># still bad</span>
 <span class="k">def</span> <span class="nf">no_op</span><span class="p">;</span> <span class="k">end</span>
 
@@ -258,7 +258,7 @@ Programming Language&quot; and &quot;Programming Ruby&quot;. (Plus it&#39;s how 
     <span class="n">calc_something_else</span>
   <span class="k">end</span>
 </code></pre></div>
-<h3 id="empty-lines-between-methods-aspan-class-label-label-different-span">Empty lines between methods <a name="empty-lines-between-methods "></a> <span class='label label--different '>different</span></h3>
+<h3 id="empty-lines-between-methods-aspan-class-label-label-different-span">Empty lines between methods <a name="empty-lines-between-methods "></a> <span class="label label--different">different</span></h3>
 
 <p>Use empty lines between method definitions. Also, where it improves readability, break up a method into logical paragraphs internally. NOTE—Often, where a method <em>can</em> be broken into logical paragraphs, this is hinting at another method which should be extracted.</p>
 <div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby"><span class="c1"># This is very simple, it&#39;s fine to not add empty lines between the lines.</span>
@@ -360,7 +360,7 @@ line continuations for anything but string concatenation.</p>
 <span class="s2">tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\</span>
 <span class="s2">quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.&quot;</span>
 </code></pre></div>
-<h3 id="chaining-methods-across-multiple-lines-different">Chaining methods across multiple lines <span class='label label--different '>different</span></h3>
+<h3 id="chaining-methods-across-multiple-lines-different">Chaining methods across multiple lines <span class="label label--different">different</span></h3>
 
 <p>When continuing a chained method invocation on another line, include the <code>.</code> on the first line to indicate that the expression continues on the next.</p>
 
@@ -440,13 +440,13 @@ line continuations for anything but string concatenation.</p>
 <span class="c1"># good - much easier to parse for the human brain</span>
 <span class="n">num</span> <span class="o">=</span> <span class="mi">1_000_000</span>
 </code></pre></div>
-<h3 id="document-with-tomdoc-different">Document with TomDoc <span class='label label--different '>different</span></h3>
+<h3 id="document-with-tomdoc-different">Document with TomDoc <span class="label label--different">different</span></h3>
 
 <p>Use <a href="http://TomDoc.org">TomDoc</a> and its conventions for API documentation.</p>
 
 <p>Stick to TomDoc&#39;s guidelines</p>
 
-<h3 id="use-a-wrap-column-different">Use a wrap column <span class='label label--different '>different</span></h3>
+<h3 id="use-a-wrap-column-different">Use a wrap column <span class="label label--different">different</span></h3>
 
 <p>Limit lines to <strong>90 characters</strong>.</p>
 
@@ -454,7 +454,7 @@ line continuations for anything but string concatenation.</p>
 
 <p>Where possible, avoid trailing whitespace.</p>
 
-<h3 id="avoid-new-lines-at-the-end-of-files-different">Avoid new lines at the end of files <span class='label label--different '>different</span></h3>
+<h3 id="avoid-new-lines-at-the-end-of-files-different">Avoid new lines at the end of files <span class="label label--different">different</span></h3>
 
 <p>No need to end each file with a newline—that&#39;s silly.</p>
 
@@ -609,7 +609,7 @@ in its block will be visible outside it.</p>
   <span class="n">do_something_else</span>
 <span class="k">end</span>
 </code></pre></div>
-<h3 id="use-the-ternary-for-short-conditions-different">Use the ternary for short conditions <span class='label label--different '>different</span></h3>
+<h3 id="use-the-ternary-for-short-conditions-different">Use the ternary for short conditions <span class="label label--different">different</span></h3>
 
 <p>Favour the ternary operator(<code>?:</code>) over <code>if/then/else/end</code> constructs. It&#39;s more common and obviously more concise.</p>
 <div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby"><span class="c1"># bad</span>
@@ -639,7 +639,7 @@ in its block will be visible outside it.</p>
   <span class="n">something_else</span>
 <span class="k">end</span>
 </code></pre></div>
-<h3 id="keep-conditional-branches-as-clear-as-possible-different">Keep conditional branches as clear as possible <span class='label label--different '>different</span></h3>
+<h3 id="keep-conditional-branches-as-clear-as-possible-different">Keep conditional branches as clear as possible <span class="label label--different">different</span></h3>
 
 <p>Conditional branches should be as easy as possible to read. Sometimes that means repeating the name of a variable in each branch.</p>
 
@@ -675,7 +675,7 @@ in its block will be visible outside it.</p>
 <span class="c1"># good</span>
 <span class="n">x</span> <span class="o">=</span> <span class="o">!</span><span class="n">something</span>
 </code></pre></div>
-<h3 id="use-when-required-different">Use  <code>!!</code> when required <span class='label label--different '>different</span></h3>
+<h3 id="use-when-required-different">Use  <code>!!</code> when required <span class="label label--different">different</span></h3>
 
 <p>The double–bang operator is a quick and efficient way to convert a non-boolean 
   value into it&#39;s boolean equivalent. This is useful when a method contract specifically  expects a boolean value to be returned.</p>
@@ -734,113 +734,118 @@ in its block will be visible outside it.</p>
 <span class="c1"># control flow</span>
 <span class="n">document</span><span class="o">.</span><span class="n">saved?</span> <span class="o">||</span> <span class="n">document</span><span class="o">.</span><span class="n">save!</span>
 </code></pre></div>
-<ul>
-<li><p><a name="no-multiline-ternary"></a>
-Avoid multi-line <code>?:</code> (the ternary operator); use <code>if/unless</code> instead.</p></li>
-<li><p><a name="if-as-a-modifier"></a>
-Favour modifier <code>if/unless</code> usage when you have a single-line body. Another
-good alternative is the usage of control flow <code>&amp;&amp;/||</code>.</p></li>
-</ul>
-<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby">  <span class="c1"># bad</span>
-  <span class="k">if</span> <span class="n">some_condition</span>
-    <span class="n">do_something</span>
-  <span class="k">end</span>
+<h3 id="avoid-using-on-multi-lines">Avoid using <code>?</code> on multi-lines</h3>
 
-  <span class="c1"># good</span>
-  <span class="n">do_something</span> <span class="k">if</span> <span class="n">some_condition</span>
+<p>Avoid multi-line <code>?:</code> (the ternary operator); use <code>if/unless</code> instead.</p>
 
-  <span class="c1"># another good option</span>
-  <span class="n">some_condition</span> <span class="o">&amp;&amp;</span> <span class="n">do_something</span>
+<h3 id="favour-modifier">Favour modifier</h3>
+
+<p>Favour modifier <code>if/unless</code> usage when you have a single-line body. Another
+good alternative is the usage of control flow <code>&amp;&amp;/||</code>.</p>
+<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby"><span class="c1"># bad</span>
+<span class="k">if</span> <span class="n">some_condition</span>
+  <span class="n">do_something</span>
+<span class="k">end</span>
+
+<span class="c1"># good</span>
+<span class="n">do_something</span> <span class="k">if</span> <span class="n">some_condition</span>
+
+<span class="c1"># this is a terrible option</span>
+<span class="n">some_condition</span> <span class="o">&amp;&amp;</span> <span class="n">do_something</span>
 </code></pre></div>
-<ul>
-<li><a name="no-multiline-if-modifiers"></a>
-Avoid modifier <code>if/unless</code> usage at the end of a non-trivial multi-line
-block.</li>
-</ul>
-<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby">  <span class="c1"># bad</span>
+<h3 id="avoid-using-if-else-for-block-execution">Avoid using if/else for block execution</h3>
+
+<p>Avoid modifier <code>if/unless</code> usage at the end of a non-trivial multi-line
+block.</p>
+<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby"><span class="c1"># bad</span>
+<span class="mi">10</span><span class="o">.</span><span class="n">times</span> <span class="k">do</span>
+  <span class="c1"># multi-line body omitted</span>
+<span class="k">end</span> <span class="k">if</span> <span class="n">some_condition</span>
+
+<span class="c1"># good</span>
+<span class="k">if</span> <span class="n">some_condition</span>
   <span class="mi">10</span><span class="o">.</span><span class="n">times</span> <span class="k">do</span>
     <span class="c1"># multi-line body omitted</span>
-  <span class="k">end</span> <span class="k">if</span> <span class="n">some_condition</span>
-
-  <span class="c1"># good</span>
-  <span class="k">if</span> <span class="n">some_condition</span>
-    <span class="mi">10</span><span class="o">.</span><span class="n">times</span> <span class="k">do</span>
-      <span class="c1"># multi-line body omitted</span>
-    <span class="k">end</span>
   <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="c1"># best - extract the block to a method if possible</span>
+<span class="k">def</span> <span class="nf">do_10_times_thing</span>
+  <span class="mi">10</span><span class="o">.</span><span class="n">times</span> <span class="k">do</span>
+    <span class="c1"># multi-line body omitted</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="n">do_10_times_thing</span> <span class="k">if</span> <span class="n">some_condition</span>
 </code></pre></div>
-<ul>
-<li><a name="unless-for-negatives"></a>
-Favour <code>unless</code> over <code>if</code> for negative conditions (or control flow <code>||</code>).</li>
-</ul>
-<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby">  <span class="c1"># bad</span>
-  <span class="n">do_something</span> <span class="k">if</span> <span class="o">!</span><span class="n">some_condition</span>
+<h3 id="favour-unless-over-if">Favour <code>unless</code> over <code>if</code></h3>
 
-  <span class="c1"># bad</span>
-  <span class="n">do_something</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">some_condition</span>
+<p>Favour <code>unless</code> over <code>if</code> for negative conditions (or control flow <code>||</code>).</p>
+<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby"><span class="c1"># bad</span>
+<span class="n">do_something</span> <span class="k">if</span> <span class="o">!</span><span class="n">some_condition</span>
 
-  <span class="c1"># good</span>
-  <span class="n">do_something</span> <span class="k">unless</span> <span class="n">some_condition</span>
+<span class="c1"># bad</span>
+<span class="n">do_something</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">some_condition</span>
 
-  <span class="c1"># another good option</span>
-  <span class="n">some_condition</span> <span class="o">||</span> <span class="n">do_something</span>
+<span class="c1"># good</span>
+<span class="n">do_something</span> <span class="k">unless</span> <span class="n">some_condition</span>
+
+<span class="c1"># another good option</span>
+<span class="n">some_condition</span> <span class="o">||</span> <span class="n">do_something</span>
 </code></pre></div>
-<ul>
-<li><a name="no-else-with-unless"></a>
-Do not use <code>unless</code> with <code>else</code>. Rewrite these with the positive case first.</li>
-</ul>
-<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby">  <span class="c1"># bad</span>
-  <span class="k">unless</span> <span class="n">success?</span>
-    <span class="nb">puts</span> <span class="s1">&#39;failure&#39;</span>
-  <span class="k">else</span>
-    <span class="nb">puts</span> <span class="s1">&#39;success&#39;</span>
-  <span class="k">end</span>
+<h3 id="do-not-use-unless-with-else">Do not use <code>unless</code> with <code>else</code></h3>
 
-  <span class="c1"># good</span>
-  <span class="k">if</span> <span class="n">success?</span>
-    <span class="nb">puts</span> <span class="s1">&#39;success&#39;</span>
-  <span class="k">else</span>
-    <span class="nb">puts</span> <span class="s1">&#39;failure&#39;</span>
-  <span class="k">end</span>
+<p>Do not use <code>unless</code> with <code>else</code>. Rewrite these with the positive case first.</p>
+<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby"><span class="c1"># bad</span>
+<span class="k">unless</span> <span class="n">success?</span>
+  <span class="nb">puts</span> <span class="s1">&#39;failure&#39;</span>
+<span class="k">else</span>
+  <span class="nb">puts</span> <span class="s1">&#39;success&#39;</span>
+<span class="k">end</span>
+
+<span class="c1"># good</span>
+<span class="k">if</span> <span class="n">success?</span>
+  <span class="nb">puts</span> <span class="s1">&#39;success&#39;</span>
+<span class="k">else</span>
+  <span class="nb">puts</span> <span class="s1">&#39;failure&#39;</span>
+<span class="k">end</span>
 </code></pre></div>
-<ul>
-<li><a name="no-parens-if"></a>
-Don&#39;t use parentheses around the condition of an <code>if/unless/while/until</code>.</li>
-</ul>
-<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby">  <span class="c1"># bad</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">)</span>
-    <span class="c1"># body omitted</span>
-  <span class="k">end</span>
+<h3 id="don-39-t-use-parentheses-around-conditions">Don&#39;t use parentheses around conditions</h3>
 
-  <span class="c1"># good</span>
-  <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">10</span>
-    <span class="c1"># body omitted</span>
-  <span class="k">end</span>
+<p>Don&#39;t use parentheses around the condition of an <code>if/unless/while/until</code>.</p>
+<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby"><span class="c1"># bad</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">)</span>
+  <span class="c1"># body omitted</span>
+<span class="k">end</span>
+
+<span class="c1"># good</span>
+<span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">10</span>
+  <span class="c1"># body omitted</span>
+<span class="k">end</span>
 </code></pre></div>
 <p>Note that there is an exception to this rule, namely <a href="#safe-assignment-in-condition">safe assignment in
 condition</a>.</p>
 
-<ul>
-<li><a name="no-multiline-while-do"></a>
-Do not use <code>while/until condition do</code> for multi-line <code>while/until</code>.</li>
-</ul>
-<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby">  <span class="c1"># bad</span>
-  <span class="k">while</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">5</span> <span class="k">do</span>
-    <span class="c1"># body omitted</span>
-  <span class="k">end</span>
+<h3 id="don-39-t-use-do-for-while-until">Don&#39;t use <code>do</code> for <code>while/until</code></h3>
 
-  <span class="k">until</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">5</span> <span class="k">do</span>
-    <span class="c1"># body omitted</span>
-  <span class="k">end</span>
+<p>Do not use <code>while/until condition do</code> for multi-line <code>while/until</code>.</p>
+<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby"><span class="c1"># bad</span>
+<span class="k">while</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">5</span> <span class="k">do</span>
+  <span class="c1"># body omitted</span>
+<span class="k">end</span>
 
-  <span class="c1"># good</span>
-  <span class="k">while</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">5</span>
-    <span class="c1"># body omitted</span>
-  <span class="k">end</span>
+<span class="k">until</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">5</span> <span class="k">do</span>
+  <span class="c1"># body omitted</span>
+<span class="k">end</span>
 
-  <span class="k">until</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">5</span>
-    <span class="c1"># body omitted</span>
-  <span class="k">end</span>
+<span class="c1"># good</span>
+<span class="k">while</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">5</span>
+  <span class="c1"># body omitted</span>
+<span class="k">end</span>
+
+<span class="k">until</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">5</span>
+  <span class="c1"># body omitted</span>
+<span class="k">end</span>
 </code></pre></div>
 <ul>
 <li><a name="while-as-a-modifier"></a>
@@ -3025,73 +3030,84 @@ backquotes in it(which is rather unlikely).</li>
   <span class="n">echo</span> <span class="o">=</span> <span class="sx">%x(echo `date`)</span>
 </code></pre></div>
 <ul>
-<li><p><a name="percent-s"></a>
+<li><a name="percent-s"></a>
 Avoid the use of <code>%s</code>. It seems that the community has decided <code>:&quot;some
-string&quot;</code> is the preferred way to create a symbol with spaces in it.</p></li>
-<li><p><a name="percent-literal-braces"></a>
-Prefer <code>()</code> as delimiters for all <code>%</code> literals, except <code>%r</code>. Since parentheses
-often appear inside regular expressions in many scenarios a less common
-character like <code>{</code> might be a better choice for a delimiter, depending on the
-regexp&#39;s content.</p></li>
+string&quot;</code> is the preferred way to create a symbol with spaces in it.</li>
 </ul>
-<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby">  <span class="c1"># bad</span>
-  <span class="sx">%w[one two three]</span>
-  <span class="sx">%q{&quot;Test&#39;s king!&quot;, John said.}</span>
 
-  <span class="c1"># good</span>
-  <span class="sx">%w(one two three)</span>
-  <span class="sx">%q(&quot;Test&#39;s king!&quot;, John said.)</span>
+<h3 id="delimiting-literals-different">Delimiting literals <span class="label label--different">different</span></h3>
+
+<p>Prefer <code>{}</code> as delimiters for all <code>%</code> literals, except <code>%w</code>. </p>
+
+<p>Since <code>%w</code> and <code>%W</code> are both used to create Arrays, using <code>[]</code> brackets is better in
+  this case.</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">string</span>  <span class="o">=</span> <span class="sx">%Q{Hello world}</span> <span class="c1"># =&gt; &quot;Hello world&quot;</span>
+<span class="n">regexp</span>  <span class="o">=</span> <span class="sr">%r{\w+}</span> <span class="c1"># =&gt; /\w+/</span>
+<span class="n">array</span>   <span class="o">=</span> <span class="sx">%w[ one two three ]</span> <span class="c1"># =&gt; [&quot;one&quot;, &quot;two&quot;, &quot;three&quot;]</span>
+<span class="n">symbols</span> <span class="o">=</span> <span class="o">%</span><span class="n">i</span><span class="o">[</span> <span class="n">one</span> <span class="n">two</span> <span class="n">three</span> <span class="o">]</span> <span class="c1"># =&gt; [:one, :two, :three]</span>
+</code></pre></div><div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby"><span class="c1"># bad</span>
+<span class="sx">%w[one two three]</span>
+<span class="sx">%q{&quot;Test&#39;s king!&quot;, John said.}</span>
+
+<span class="c1"># good</span>
+<span class="sx">%w(one two three)</span>
+<span class="sx">%q(&quot;Test&#39;s king!&quot;, John said.)</span>
 </code></pre></div>
 <h2 id="metaprogramming">Metaprogramming</h2>
 
-<ul>
-<li><p><a name="no-needless-metaprogramming"></a>
-Avoid needless metaprogramming.</p></li>
-<li><p><a name="no-monkey-patching"></a>
-Do not mess around in core classes when writing libraries.  (Do not
-monkey-patch them.)</p></li>
-<li><p><a name="block-class-eval"></a>
-The block form of <code>class_eval</code> is preferable to the string-interpolated
+<h3 id="where-possible-don-39-t">Where possible, don&#39;t!</h3>
+
+<p>Avoid needless metaprogramming.</p>
+
+<h3 id="don-39-t-monkey-patch-others-39-code">Don&#39;t monkey-patch others&#39; code</h3>
+
+<p>Do not mess around in core classes when writing libraries. (Do not
+monkey-patch them.)</p>
+
+<h3 id="using-class_eval">Using <code>class_eval</code></h3>
+
+<p>The block form of <code>class_eval</code> is preferable to the string-interpolated
 form.  - when you use the string-interpolated form, always supply <code>__FILE__</code>
-and <code>__LINE__</code>, so that your backtraces make sense:</p></li>
-</ul>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby">  <span class="nb">class_eval</span> <span class="s1">&#39;def use_relative_model_naming?; true; end&#39;</span><span class="p">,</span> <span class="bp">__FILE__</span><span class="p">,</span> <span class="bp">__LINE__</span>
+and <code>__LINE__</code>, so that your backtraces make sense:</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="nb">class_eval</span> <span class="s1">&#39;def use_relative_model_naming?; true; end&#39;</span><span class="p">,</span> <span class="bp">__FILE__</span><span class="p">,</span> <span class="bp">__LINE__</span>
 </code></pre></div>
 <ul>
-<li><p><code>define_method</code> is preferable to <code>class_eval{ def ... }</code></p>
+<li><code>define_method</code> is preferable to <code>class_eval{ def ... }</code></li>
+</ul>
 
-<ul>
-<li><a name="eval-comment-docs"></a>
-When using <code>class_eval</code> (or other <code>eval</code>) with string interpolation, add a
+<h3 id="metaprogramming-methods-as-strings">Metaprogramming methods as strings</h3>
+
+<p>When using <code>class_eval</code> (or other <code>eval</code>) with string interpolation, add a
 comment block showing its appearance if interpolated (a practice used in Rails
-code):</li>
-</ul></li>
-</ul>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby">  <span class="c1"># from activesupport/lib/active_support/core_ext/string/output_safety.rb</span>
-  <span class="no">UNSAFE_STRING_METHODS</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">unsafe_method</span><span class="o">|</span>
-    <span class="k">if</span> <span class="s1">&#39;String&#39;</span><span class="o">.</span><span class="n">respond_to?</span><span class="p">(</span><span class="n">unsafe_method</span><span class="p">)</span>
-      <span class="nb">class_eval</span> <span class="o">&lt;&lt;-</span><span class="no">EOT</span><span class="p">,</span> <span class="bp">__FILE__</span><span class="p">,</span> <span class="bp">__LINE__</span> <span class="o">+</span> <span class="mi">1</span>
-<span class="sh">        def #{unsafe_method}(*params, &amp;block)       # def capitalize(*params, &amp;block)</span>
-<span class="sh">          to_str.#{unsafe_method}(*params, &amp;block)  #   to_str.capitalize(*params, &amp;block)</span>
-<span class="sh">        end                                       # end</span>
+code):</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># from activesupport/lib/active_support/core_ext/string/output_safety.rb</span>
+<span class="no">UNSAFE_STRING_METHODS</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">unsafe_method</span><span class="o">|</span>
+  <span class="k">if</span> <span class="s1">&#39;String&#39;</span><span class="o">.</span><span class="n">respond_to?</span><span class="p">(</span><span class="n">unsafe_method</span><span class="p">)</span>
+    <span class="nb">class_eval</span> <span class="o">&lt;&lt;-</span><span class="no">EOT</span><span class="p">,</span> <span class="bp">__FILE__</span><span class="p">,</span> <span class="bp">__LINE__</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="sh">      def #{unsafe_method}(*params, &amp;block)       # def capitalize(*params, &amp;block)</span>
+<span class="sh">        to_str.#{unsafe_method}(*params, &amp;block)  #   to_str.capitalize(*params, &amp;block)</span>
+<span class="sh">      end                                       # end</span>
 
-<span class="sh">        def #{unsafe_method}!(*params)              # def capitalize!(*params)</span>
-<span class="sh">          @dirty = true                           #   @dirty = true</span>
-<span class="sh">          super                                   #   super</span>
-<span class="sh">        end                                       # end</span>
-<span class="no">      EOT</span>
-    <span class="k">end</span>
+<span class="sh">      def #{unsafe_method}!(*params)              # def capitalize!(*params)</span>
+<span class="sh">        @dirty = true                           #   @dirty = true</span>
+<span class="sh">        super                                   #   super</span>
+<span class="sh">      end                                       # end</span>
+<span class="no">    EOT</span>
   <span class="k">end</span>
+<span class="k">end</span>
 </code></pre></div>
-<ul>
-<li><p><a name="no-method-missing"></a>
-Avoid using <code>method_missing</code> for metaprogramming because backtraces become
+<h3 id="avoid-hijacking-method_missing-different">Avoid hijacking <code>method_missing</code> <span class="label label--different">different</span></h3>
+
+<p>Avoid using <code>method_missing</code> for metaprogramming because backtraces become
 messy, the behavior is not listed in <code>#methods</code>, and misspelled method calls
 might silently work, e.g. <code>nukes.launch_state = false</code>. Consider using
-delegation, proxy, or <code>define_method</code> instead. If you must use
+delegation, proxy, or <code>define_method</code> instead. </p>
+
+<p>If you must use
 <code>method_missing</code>:</p>
 
 <ul>
+<li>Document the meta-methods (See TomDoc&#39;s Signature section)  <span class="label label--different">different</span></li>
 <li>Be sure to <a href="http://blog.marc-andre.ca/2010/11/methodmissing-politely.html">also define <code>respond_to_missing?</code></a></li>
 <li>Only catch methods with a well-defined prefix, such as <code>find_by_*</code> -- make your code as assertive as possible.</li>
 <li>Call <code>super</code> at the end of your statement</li>
@@ -3116,59 +3132,94 @@ delegation, proxy, or <code>define_method</code> instead. If you must use
 <span class="k">end</span>
 
 <span class="c1"># best of all, though, would to define_method as each findable attribute is declared</span>
-</code></pre></div></li>
-<li><p><a name="prefer-public-send"></a>
-Prefer <code>public_send</code> over <code>send</code> so as not to circumvent <code>private</code>/<code>protected</code> visibility.</p></li>
-</ul>
+</code></pre></div>
+<h3 id="prefer-public_send">Prefer <code>public_send</code></h3>
+
+<p>Prefer <code>public_send</code> over <code>send</code> so as not to circumvent <code>private</code>/<code>protected</code> visibility.</p>
 
 <h2 id="misc">Misc</h2>
 
-<ul>
-<li><p><a name="always-warn"></a>
-Write <code>ruby -w</code> safe code.</p></li>
-<li><p><a name="no-optional-hash-params"></a>
-Avoid hashes as optional parameters. Does the method do too much? (Object
-initializers are exceptions for this rule).</p></li>
-<li><p><a name="short-methods"></a>
-Avoid methods longer than 10 LOC (lines of code). Ideally, most methods will
-be shorter than 5 LOC. Empty lines do not contribute to the relevant LOC.</p></li>
-<li><p><a name="too-many-params"></a>
-Avoid parameter lists longer than three or four parameters.</p></li>
-<li><p><a name="private-global-methods"></a>
-If you really need &quot;global&quot; methods, add them to Kernel and make them
-private.</p></li>
-<li><p><a name="instance-vars"></a>
-Use module instance variables instead of global variables.</p></li>
-</ul>
-<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby">  <span class="c1"># bad</span>
-  <span class="vg">$foo_bar</span> <span class="o">=</span> <span class="mi">1</span>
+<h3 id="stay-safe">Stay safe</h3>
 
-  <span class="c1"># good</span>
-  <span class="k">module</span> <span class="nn">Foo</span>
-    <span class="k">class</span> <span class="o">&lt;&lt;</span> <span class="nb">self</span>
-      <span class="kp">attr_accessor</span> <span class="ss">:bar</span>
-    <span class="k">end</span>
+<p>Write <code>ruby -w</code> safe code.</p>
+
+<h3 id="avoid-hashes-as-optional-parameters">Avoid hashes as optional parameters</h3>
+
+<p>Avoid hashes as optional parameters. Does the method do too much? (Object
+initializers are exceptions for this rule).</p>
+
+<h3 id="no-more-than-10-loc-per-method">No more than 10 LOC per method</h3>
+
+<p>Avoid methods longer than 10 LOC (lines of code). Ideally, most methods will
+be shorter than 5 LOC. Empty lines do not contribute to the relevant LOC.</p>
+
+<h3 id="no-more-than-4-params">No more than 4 params</h3>
+
+<p>Avoid parameter lists longer than four parameters.</p>
+
+<h3 id="avoid-global-methods-period">Avoid global methods. Period.</h3>
+
+<p>If you really need &quot;global&quot; methods, add them to Kernel and make them
+private.</p>
+
+<h3 id="avoid-global-variables-where-possible">Avoid global variables where possible</h3>
+
+<p>It&#39;s very uncommon that a global variable is the right tool for what you&#39;re trying to 
+  achieve. </p>
+
+<p>Does the variable you&#39;re storing have a logical namespace that it belongs to?
+  Use module instance variables instead of global variables.</p>
+<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby"><span class="c1"># bad</span>
+<span class="vg">$foo_bar</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="c1"># good</span>
+<span class="k">module</span> <span class="nn">Foo</span>
+  <span class="k">class</span> <span class="o">&lt;&lt;</span> <span class="nb">self</span>
+    <span class="kp">attr_accessor</span> <span class="ss">:bar</span>
   <span class="k">end</span>
+<span class="k">end</span>
 
-  <span class="no">Foo</span><span class="o">.</span><span class="n">bar</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="no">Foo</span><span class="o">.</span><span class="n">bar</span> <span class="o">=</span> <span class="mi">1</span>
 </code></pre></div>
 <ul>
-<li><p><a name="optionparser"></a>
-Use <code>OptionParser</code> for parsing complex command line options and <code>ruby -s</code>
-for trivial command line options.</p></li>
-<li><p><a name="time-now"></a>
-Prefer <code>Time.now</code> over <code>Time.new</code> when retrieving the current system time.</p></li>
-<li><p><a name="functional-code"></a>
-Code in a functional way, avoiding mutation when that makes sense.</p></li>
-<li><p><a name="no-param-mutations"></a>
-Do not mutate parameters unless that is the purpose of the method.</p></li>
-<li><p><a name="three-is-the-number-thou-shalt-count"></a>
-Avoid more than three levels of block nesting.</p></li>
-<li><p><a name="be-consistent"></a>
-Be consistent. In an ideal world, be consistent with these guidelines.</p></li>
-<li><p><a name="common-sense"></a>
-Use common sense.</p></li>
+<li>Use <code>OptionParser</code></li>
 </ul>
+
+<p>Use <code>OptionParser</code> for parsing complex command line options and <code>ruby -s</code>
+  for trivial command line options.</p>
+
+<h3 id="use-time-now">Use <code>Time.now</code></h3>
+
+<p>Prefer <code>Time.now</code> over <code>Time.new</code> when retrieving the current system time.</p>
+
+<h3 id="do-not-mutate-parameters">Do not mutate parameters</h3>
+
+<p>Do not mutate parameters unless that is the purpose of the method.</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># bad </span>
+<span class="k">def</span> <span class="nf">my_method</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+  <span class="n">better_string</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">gsub!</span><span class="p">(</span><span class="sr">/foo/</span><span class="p">,</span> <span class="s2">&quot;bar&quot;</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">better_string</span>
+<span class="k">end</span>
+
+<span class="c1"># good</span>
+<span class="k">def</span> <span class="nf">my_method</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+  <span class="n">better_string</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="sr">/foo/</span><span class="p">,</span> <span class="s2">&quot;bar&quot;</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">better_string</span>
+<span class="k">end</span>
+</code></pre></div>
+<h3 id="don-39-t-nest-more-than-3x">Don&#39;t nest more than 3x</h3>
+
+<p>Avoid more than three levels of block nesting.</p>
+
+<h3 id="be-consistent">Be consistent</h3>
+
+<p>Be consistent. In an ideal world, be consistent with these guidelines.</p>
+
+<p>Consistency will help us work together more productively as a team.</p>
+
+<h3 id="but-above-all">But, above all...</h3>
+
+<p>Use common sense.</p>
 
         </div>
       </div>
