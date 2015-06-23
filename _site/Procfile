@@ -1,2 +1,3 @@
 web: jekyll serve --port 3000
-assets: sass --watch app/assets/bushido.scss:assets/bushido.css
+assets: sass -r sass-globbing --sourcemap=none --style=compressed --watch app/assets/stylesheets/bushido.sass:assets/bushido.css
+assets: coffee -c -o assets -w app/assets/javascripts/bushido.coffee

@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
     <title>{{post.title || "Katana Code" }}</title>
     
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" type="text/css" media="all">
-    
-    <!-- <link rel="stylesheet" href="//katanacode.com/assets/application.css" type="text/css" media="all"> -->
-    
-    <link rel="stylesheet" href="assets/bushido.css" type="text/css" media="all">
-    
+    {% include header_content.html %}
+        
   </head>
   <body>
     {{ content }}

@@ -1,0 +1,19 @@
+<h3>Contents</h3>
+<li><a href="/">Home</a></li>
+{% for category in site.categories %}
+  <li>
+    <a href="#{{ category | first | replace: ' ', "_" | strip_newlines | downcase }}" data-toggle="collapse" >
+      {{ category | first | capitalize }}
+    </a>
+    
+    <ul class="collapse" id="{{ category | first | replace: ' ', "_" | strip_newlines | downcase }}">
+    {% for posts in category %}
+      {% for post in posts %}
+        {% if post.url %}
+          <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+        {% endif %}
+      {% endfor %}
+    {% endfor %}
+    </ul>
+  </li>
+{% endfor %}
