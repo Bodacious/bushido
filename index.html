@@ -9,7 +9,7 @@ layout: global
   
 
     <p class='lead'>
-      Simple, powerful tenets for writing better code.
+      Guidelines to help us make better web and mobile apps together!
     </p>    
   </div>
 </div>
@@ -29,6 +29,21 @@ layout: global
         <br>
         —Pablo Picasso
       </blockquote>
+      
+      {% for category in site.categories %}
+
+        <h2>{{ category | first | replace: '_', " " | capitalize }}</h2>
+    
+        {% for posts in category %}
+          {% for post in posts %}
+            {% if post.url %}
+              <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+            {% endif %}
+          {% endfor %}
+        {% endfor %}
+
+      {% endfor %}
+      
       
     </div>
   </div>

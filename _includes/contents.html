@@ -3,7 +3,7 @@
 {% for category in site.categories %}
   <li>
     <a href="#{{ category | first | replace: ' ', "_" | strip_newlines | downcase }}" data-toggle="collapse" >
-      {{ category | first | capitalize }}
+      {{ category | first | replace: '_', " " | capitalize }}
     </a>
     
     <ul class="collapse" id="{{ category | first | replace: ' ', "_" | strip_newlines | downcase }}">
