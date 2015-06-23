@@ -13,8 +13,3 @@ redcarpet:
 katana_code_url: "//katanacode.com"
 
 highlighter: pygments
-github: [Repository metadata]
-
-safe: true
-lsi: false
-source: _site
