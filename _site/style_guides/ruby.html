@@ -2,8 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title></title>
-    <!-- Latest compiled and minified CSS -->
+<title></title>
+
+<!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
 <!-- Optional theme -->
@@ -738,7 +739,7 @@ in its block will be visible outside it.</p>
 
 <p>Avoid multi-line <code>?:</code> (the ternary operator); use <code>if/unless</code> instead.</p>
 
-<h3 id="favour-modifier">Favour modifier</h3>
+<h3 id="favour-modifier-if-else">Favour modifier <code>if/else</code></h3>
 
 <p>Favour modifier <code>if/unless</code> usage when you have a single-line body. Another
 good alternative is the usage of control flow <code>&amp;&amp;/||</code>.</p>
@@ -847,31 +848,27 @@ condition</a>.</p>
   <span class="c1"># body omitted</span>
 <span class="k">end</span>
 </code></pre></div>
-<ul>
-<li><a name="while-as-a-modifier"></a>
-Favour modifier <code>while/until</code> usage when you have a single-line body.</li>
-</ul>
-<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby">  <span class="c1"># bad</span>
-  <span class="k">while</span> <span class="n">some_condition</span>
-    <span class="n">do_something</span>
-  <span class="k">end</span>
+<h3 id="favour-modifier-while-until-when-a-single-body">Favour modifier <code>while/until</code> when a single body</h3>
 
-  <span class="c1"># good</span>
-  <span class="n">do_something</span> <span class="k">while</span> <span class="n">some_condition</span>
-</code></pre></div>
-<ul>
-<li><a name="until-for-negatives"></a>
-Favour <code>until</code> over <code>while</code> for negative conditions.</li>
-</ul>
-<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby">  <span class="c1"># bad</span>
-  <span class="n">do_something</span> <span class="k">while</span> <span class="o">!</span><span class="n">some_condition</span>
+<p>Favour modifier <code>while/until</code> usage when you have a single-line body.</p>
+<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby"><span class="c1"># bad</span>
+<span class="k">while</span> <span class="n">some_condition</span>
+  <span class="n">do_something</span>
+<span class="k">end</span>
 
-  <span class="c1"># good</span>
-  <span class="n">do_something</span> <span class="k">until</span> <span class="n">some_condition</span>
+<span class="c1"># good</span>
+<span class="n">do_something</span> <span class="k">while</span> <span class="n">some_condition</span>
 </code></pre></div>
-<ul>
-<li><p><a name="infinite-loop"></a>
-Use <code>Kernel#loop</code> instead of <code>while/until</code> when you need an infinite loop.</p>
+<h4 id="favour-until-over-while-for-negative-conditions">Favour <code>until</code> over <code>while</code> for negative conditions.</h4>
+<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby"><span class="c1"># bad</span>
+<span class="n">do_something</span> <span class="k">while</span> <span class="o">!</span><span class="n">some_condition</span>
+
+<span class="c1"># good</span>
+<span class="n">do_something</span> <span class="k">until</span> <span class="n">some_condition</span>
+</code></pre></div>
+<h3 id="for-infinite-loops">For infinite loops</h3>
+
+<p>Use <code>Kernel#loop</code> instead of <code>while/until</code> when you need an infinite loop.</p>
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># bad</span>
 <span class="k">while</span> <span class="kp">true</span>
   <span class="n">do_something</span>
@@ -885,85 +882,81 @@ Use <code>Kernel#loop</code> instead of <code>while/until</code> when you need a
 <span class="kp">loop</span> <span class="k">do</span>
   <span class="n">do_something</span>
 <span class="k">end</span>
-</code></pre></div></li>
-<li><p><a name="loop-with-break"></a>
-Use <code>Kernel#loop</code> with <code>break</code> rather than <code>begin/end/until</code> or
-<code>begin/end/while</code> for post-loop tests.</p></li>
-</ul>
-<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby">  <span class="c1"># bad</span>
-  <span class="k">begin</span>
-    <span class="nb">puts</span> <span class="n">val</span>
-    <span class="n">val</span> <span class="o">+=</span> <span class="mi">1</span>
-  <span class="k">end</span> <span class="k">while</span> <span class="n">val</span> <span class="o">&lt;</span> <span class="mi">0</span>
-
-  <span class="c1"># good</span>
-  <span class="kp">loop</span> <span class="k">do</span>
-    <span class="nb">puts</span> <span class="n">val</span>
-    <span class="n">val</span> <span class="o">+=</span> <span class="mi">1</span>
-    <span class="k">break</span> <span class="k">unless</span> <span class="n">val</span> <span class="o">&lt;</span> <span class="mi">0</span>
-  <span class="k">end</span>
 </code></pre></div>
-<ul>
-<li><a name="no-dsl-parens"></a>
-Omit parentheses around parameters for methods that are part of an internal
+<h3 id="looping-until-a-value">Looping until a value</h3>
+
+<p>Use <code>Kernel#loop</code> with <code>break</code> rather than <code>begin/end/until</code> or
+<code>begin/end/while</code> for post-loop tests.</p>
+<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby"><span class="c1"># bad</span>
+<span class="k">begin</span>
+  <span class="nb">puts</span> <span class="n">val</span>
+  <span class="n">val</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="k">end</span> <span class="k">while</span> <span class="n">val</span> <span class="o">&lt;</span> <span class="mi">0</span>
+
+<span class="c1"># good</span>
+<span class="kp">loop</span> <span class="k">do</span>
+  <span class="nb">puts</span> <span class="n">val</span>
+  <span class="n">val</span> <span class="o">+=</span> <span class="mi">1</span>
+  <span class="k">break</span> <span class="k">unless</span> <span class="n">val</span> <span class="o">&lt;</span> <span class="mi">0</span>
+<span class="k">end</span>
+</code></pre></div>
+<h3 id="skip-parenthesis-on-dsl-methods">Skip parenthesis on DSL methods</h3>
+
+<p>Omit parentheses around parameters for methods that are part of an internal
 DSL (e.g. Rake, Rails, RSpec), methods that have &quot;keyword&quot; status in Ruby
 (e.g. <code>attr_reader</code>, <code>puts</code>) and attribute access methods. Use parentheses
-around the arguments of all other method invocations.</li>
-</ul>
-<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby">  <span class="k">class</span> <span class="nc">Person</span>
-    <span class="kp">attr_reader</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">:age</span>
+around the arguments of all other method invocations.</p>
+<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby"><span class="k">class</span> <span class="nc">Person</span>
+  <span class="kp">attr_reader</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">:age</span>
 
-    <span class="c1"># omitted</span>
-  <span class="k">end</span>
+  <span class="c1"># omitted</span>
+<span class="k">end</span>
 
-  <span class="n">temperance</span> <span class="o">=</span> <span class="no">Person</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s1">&#39;Temperance&#39;</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
-  <span class="n">temperance</span><span class="o">.</span><span class="n">name</span>
+<span class="n">temperance</span> <span class="o">=</span> <span class="no">Person</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s1">&#39;Temperance&#39;</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+<span class="n">temperance</span><span class="o">.</span><span class="n">name</span>
 
-  <span class="nb">puts</span> <span class="n">temperance</span><span class="o">.</span><span class="n">age</span>
+<span class="nb">puts</span> <span class="n">temperance</span><span class="o">.</span><span class="n">age</span>
 
-  <span class="n">x</span> <span class="o">=</span> <span class="no">Math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
-  <span class="n">array</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="no">Math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="n">array</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
 
-  <span class="n">bowling</span><span class="o">.</span><span class="n">score</span><span class="o">.</span><span class="n">should</span> <span class="o">==</span> <span class="mi">0</span>
+<span class="n">bowling</span><span class="o">.</span><span class="n">score</span><span class="o">.</span><span class="n">should</span> <span class="o">==</span> <span class="mi">0</span>
 </code></pre></div>
-<ul>
-<li><a name="no-braces-opts-hash"></a>
-Omit the outer braces around an implicit options hash.</li>
-</ul>
-<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby">  <span class="c1"># bad</span>
-  <span class="n">user</span><span class="o">.</span><span class="n">set</span><span class="p">({</span> <span class="nb">name</span><span class="p">:</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="ss">age</span><span class="p">:</span> <span class="mi">45</span><span class="p">,</span> <span class="ss">permissions</span><span class="p">:</span> <span class="p">{</span> <span class="ss">read</span><span class="p">:</span> <span class="kp">true</span> <span class="p">}</span> <span class="p">})</span>
+<h3 id="omit-braces-around-options-hashes">Omit braces around options Hashes</h3>
+
+<p>Omit the outer braces around an implicit options hash.</p>
+<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby"><span class="c1"># bad</span>
+<span class="n">user</span><span class="o">.</span><span class="n">set</span><span class="p">({</span> <span class="nb">name</span><span class="p">:</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="ss">age</span><span class="p">:</span> <span class="mi">45</span><span class="p">,</span> <span class="ss">permissions</span><span class="p">:</span> <span class="p">{</span> <span class="ss">read</span><span class="p">:</span> <span class="kp">true</span> <span class="p">}</span> <span class="p">})</span>
+
+<span class="c1"># good</span>
+<span class="n">user</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="nb">name</span><span class="p">:</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="ss">age</span><span class="p">:</span> <span class="mi">45</span><span class="p">,</span> <span class="ss">permissions</span><span class="p">:</span> <span class="p">{</span> <span class="ss">read</span><span class="p">:</span> <span class="kp">true</span> <span class="p">})</span>
+</code></pre></div>
+<h3 id="omit-braces-around-dsl-options-hashes">Omit braces around DSL options Hashes</h3>
+
+<p>Omit both the outer braces and parentheses for methods that are part of an
+internal DSL.</p>
+<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby"><span class="k">class</span> <span class="nc">Person</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+  <span class="c1"># bad</span>
+  <span class="n">validates</span><span class="p">(</span><span class="ss">:name</span><span class="p">,</span> <span class="p">{</span> <span class="ss">presence</span><span class="p">:</span> <span class="kp">true</span><span class="p">,</span> <span class="ss">length</span><span class="p">:</span> <span class="p">{</span> <span class="ss">within</span><span class="p">:</span> <span class="mi">1</span><span class="o">.</span><span class="n">.</span><span class="mi">10</span> <span class="p">}</span> <span class="p">})</span>
 
   <span class="c1"># good</span>
-  <span class="n">user</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="nb">name</span><span class="p">:</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="ss">age</span><span class="p">:</span> <span class="mi">45</span><span class="p">,</span> <span class="ss">permissions</span><span class="p">:</span> <span class="p">{</span> <span class="ss">read</span><span class="p">:</span> <span class="kp">true</span> <span class="p">})</span>
+  <span class="n">validates</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">presence</span><span class="p">:</span> <span class="kp">true</span><span class="p">,</span> <span class="ss">length</span><span class="p">:</span> <span class="p">{</span> <span class="ss">within</span><span class="p">:</span> <span class="mi">1</span><span class="o">.</span><span class="n">.</span><span class="mi">10</span> <span class="p">}</span>
+<span class="k">end</span>
 </code></pre></div>
-<ul>
-<li><a name="no-dsl-decorating"></a>
-Omit both the outer braces and parentheses for methods that are part of an
-internal DSL.</li>
-</ul>
-<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby">  <span class="k">class</span> <span class="nc">Person</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
-    <span class="c1"># bad</span>
-    <span class="n">validates</span><span class="p">(</span><span class="ss">:name</span><span class="p">,</span> <span class="p">{</span> <span class="ss">presence</span><span class="p">:</span> <span class="kp">true</span><span class="p">,</span> <span class="ss">length</span><span class="p">:</span> <span class="p">{</span> <span class="ss">within</span><span class="p">:</span> <span class="mi">1</span><span class="o">.</span><span class="n">.</span><span class="mi">10</span> <span class="p">}</span> <span class="p">})</span>
+<h3 id="omit-parentheses-for-methods-with-no-args">Omit parentheses for methods with no args.</h3>
 
-    <span class="c1"># good</span>
-    <span class="n">validates</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">presence</span><span class="p">:</span> <span class="kp">true</span><span class="p">,</span> <span class="ss">length</span><span class="p">:</span> <span class="p">{</span> <span class="ss">within</span><span class="p">:</span> <span class="mi">1</span><span class="o">.</span><span class="n">.</span><span class="mi">10</span> <span class="p">}</span>
-  <span class="k">end</span>
-</code></pre></div>
-<ul>
-<li><a name="no-args-no-parens"></a>
-Omit parentheses for method calls with no arguments.</li>
-</ul>
-<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby">  <span class="c1"># bad</span>
-  <span class="no">Kernel</span><span class="o">.</span><span class="n">exit!</span><span class="p">()</span>
-  <span class="mi">2</span><span class="o">.</span><span class="n">even?</span><span class="p">()</span>
-  <span class="nb">fork</span><span class="p">()</span>
-  <span class="s1">&#39;test&#39;</span><span class="o">.</span><span class="n">upcase</span><span class="p">()</span>
+<p>Omit parentheses for method calls with no arguments.</p>
+<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby"><span class="c1"># bad</span>
+<span class="no">Kernel</span><span class="o">.</span><span class="n">exit!</span><span class="p">()</span>
+<span class="mi">2</span><span class="o">.</span><span class="n">even?</span><span class="p">()</span>
+<span class="nb">fork</span><span class="p">()</span>
+<span class="s1">&#39;test&#39;</span><span class="o">.</span><span class="n">upcase</span><span class="p">()</span>
 
-  <span class="c1"># good</span>
-  <span class="no">Kernel</span><span class="o">.</span><span class="n">exit!</span>
-  <span class="mi">2</span><span class="o">.</span><span class="n">even?</span>
-  <span class="nb">fork</span>
-  <span class="s1">&#39;test&#39;</span><span class="o">.</span><span class="n">upcase</span>
+<span class="c1"># good</span>
+<span class="no">Kernel</span><span class="o">.</span><span class="n">exit!</span>
+<span class="mi">2</span><span class="o">.</span><span class="n">even?</span>
+<span class="nb">fork</span>
+<span class="s1">&#39;test&#39;</span><span class="o">.</span><span class="n">upcase</span>
 </code></pre></div>
 <ul>
 <li><a name="single-action-blocks"></a>
@@ -2882,158 +2875,144 @@ on which to trim the excessive whitespace.</p></li>
 </code></pre></div>
 <h2 id="regular-expressions">Regular Expressions</h2>
 
-<blockquote>
-<p>Some people, when confronted with a problem, think
-&quot;I know, I&#39;ll use regular expressions.&quot; Now they have two problems.<br>
--- Jamie Zawinski</p>
-</blockquote>
+<h3 id="avoid-regular-expressions-where-strings-will-do">Avoid regular expressions where strings will do</h3>
 
-<ul>
-<li><p><a name="no-regexp-for-plaintext"></a>
-Don&#39;t use regular expressions if you just need plain text search in string:
-<code>string[&#39;text&#39;]</code></p></li>
-<li><p><a name="regexp-string-index"></a>
-For simple constructions you can use regexp directly through string index.</p></li>
-</ul>
-<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby">  <span class="n">match</span> <span class="o">=</span> <span class="n">string</span><span class="o">[</span><span class="sr">/regexp/</span><span class="o">]</span>             <span class="c1"># get content of matched regexp</span>
-  <span class="n">first_group</span> <span class="o">=</span> <span class="n">string</span><span class="o">[</span><span class="sr">/text(grp)/</span><span class="p">,</span> <span class="mi">1</span><span class="o">]</span> <span class="c1"># get content of captured group</span>
-  <span class="n">string</span><span class="o">[</span><span class="sr">/text (grp)/</span><span class="p">,</span> <span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="s1">&#39;replace&#39;</span>  <span class="c1"># string =&gt; &#39;text replace&#39;</span>
-</code></pre></div>
-<ul>
-<li><a name="non-capturing-regexp"></a>
-Use non-capturing groups when you don&#39;t use captured result of parentheses.</li>
-</ul>
-<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby">  <span class="sr">/(first|second)/</span>   <span class="c1"># bad</span>
-  <span class="sr">/(?:first|second)/</span> <span class="c1"># good</span>
-</code></pre></div>
-<ul>
-<li><a name="no-perl-regexp-last-matchers"></a>
-Don&#39;t use the cryptic Perl-legacy variables denoting last regexp group
-matches (<code>$1</code>, <code>$2</code>, etc). Use <code>Regexp.last_match(n)</code> instead.</li>
-</ul>
-<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby">  <span class="sr">/(regexp)/</span> <span class="o">=~</span> <span class="n">string</span>
-  <span class="o">.</span><span class="n">.</span><span class="o">.</span>
+<p>Don&#39;t use regular expressions if you just need plain text search in string:
+<code>string[&#39;text&#39;]</code></p>
 
-  <span class="c1"># bad</span>
-  <span class="n">process</span> <span class="vg">$1</span>
+<h3 id="matching-simple-strings">Matching simple Strings</h3>
 
-  <span class="c1"># good</span>
-  <span class="n">process</span> <span class="no">Regexp</span><span class="o">.</span><span class="n">last_match</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<p>For simple constructions you can use regexp directly through string index.</p>
+<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby"><span class="n">match</span> <span class="o">=</span> <span class="n">string</span><span class="o">[</span><span class="sr">/regexp/</span><span class="o">]</span>             <span class="c1"># get content of matched regexp</span>
+<span class="n">first_group</span> <span class="o">=</span> <span class="n">string</span><span class="o">[</span><span class="sr">/text(grp)/</span><span class="p">,</span> <span class="mi">1</span><span class="o">]</span> <span class="c1"># get content of captured group</span>
+<span class="n">string</span><span class="o">[</span><span class="sr">/text (grp)/</span><span class="p">,</span> <span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="s1">&#39;replace&#39;</span>  <span class="c1"># string =&gt; &#39;text replace&#39;</span>
 </code></pre></div>
-<ul>
-<li><a name="no-numbered-regexes"></a>
-Avoid using numbered groups as it can be hard to track what they contain.
-Named groups can be used instead.</li>
-</ul>
-<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby">  <span class="c1"># bad</span>
-  <span class="sr">/(regexp)/</span> <span class="o">=~</span> <span class="n">string</span>
-  <span class="o">.</span><span class="n">.</span><span class="o">.</span>
-  <span class="n">process</span> <span class="no">Regexp</span><span class="o">.</span><span class="n">last_match</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<h3 id="capturing-results">Capturing results</h3>
 
-  <span class="c1"># good</span>
-  <span class="sr">/(?&lt;meaningful_var&gt;regexp)/</span> <span class="o">=~</span> <span class="n">string</span>
-  <span class="o">.</span><span class="n">.</span><span class="o">.</span>
-  <span class="n">process</span> <span class="n">meaningful_var</span>
+<p>Use non-capturing groups when you don&#39;t use captured result of parentheses.</p>
+<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby"><span class="sr">/(first|second)/</span>   <span class="c1"># bad</span>
+<span class="sr">/(?:first|second)/</span> <span class="c1"># good</span>
 </code></pre></div>
-<ul>
-<li><p><a name="limit-escapes"></a>
-Character classes have only a few special characters you should care about:
-<code>^</code>, <code>-</code>, <code>\</code>, <code>]</code>, so don&#39;t escape <code>.</code> or brackets in <code>[]</code>.</p></li>
-<li><p><a name="caret-and-dollar-regexp"></a>
-Be careful with <code>^</code> and <code>$</code> as they match start/end of line, not string
+<h3 id="avoid-global-variables">Avoid global variables</h3>
+
+<p>Don&#39;t use the cryptic Perl-legacy variables denoting last regexp group
+matches (<code>$1</code>, <code>$2</code>, etc). Use <code>Regexp.last_match(n)</code> instead.</p>
+<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby"><span class="sr">/(regexp)/</span> <span class="o">=~</span> <span class="n">string</span>
+<span class="o">.</span><span class="n">.</span><span class="o">.</span>
+
+<span class="c1"># bad</span>
+<span class="n">process</span> <span class="vg">$1</span>
+
+<span class="c1"># good</span>
+<span class="n">process</span> <span class="no">Regexp</span><span class="o">.</span><span class="n">last_match</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="avoid-numbered-matches">Avoid numbered matches</h3>
+
+<p>Avoid using numbered groups as it can be hard to track what they contain.
+Named groups can be used instead.</p>
+<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby"><span class="c1"># bad</span>
+<span class="sr">/(regexp)/</span> <span class="o">=~</span> <span class="n">string</span>
+<span class="o">.</span><span class="n">.</span><span class="o">.</span>
+<span class="n">process</span> <span class="no">Regexp</span><span class="o">.</span><span class="n">last_match</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># good</span>
+<span class="sr">/(?&lt;meaningful_var&gt;regexp)/</span> <span class="o">=~</span> <span class="n">string</span>
+<span class="o">.</span><span class="n">.</span><span class="o">.</span>
+<span class="n">process</span> <span class="n">meaningful_var</span>
+</code></pre></div>
+<h3 id="don-39-t-escape-everything">Don&#39;t escape everything</h3>
+
+<p>Character classes have only a few special characters you should care about:
+  <code>^</code>, <code>-</code>, <code>\</code>, <code>]</code>, so don&#39;t escape <code>.</code> or brackets in <code>[]</code>.</p>
+
+<h3 id="line-vs-string-start-ending">Line VS String start/ending</h3>
+
+<p>Be careful with <code>^</code> and <code>$</code> as they match start/end of line, not string
 endings.  If you want to match the whole string use: <code>\A</code> and <code>\z</code> (not to be
-confused with <code>\Z</code> which is the equivalent of <code>/\n?\z/</code>).</p></li>
-</ul>
-<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby">  <span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;some injection</span><span class="se">\n</span><span class="s2">username&quot;</span>
-  <span class="n">string</span><span class="o">[</span><span class="sr">/^username$/</span><span class="o">]</span>   <span class="c1"># matches</span>
-  <span class="n">string</span><span class="o">[</span><span class="sr">/\Ausername\z/</span><span class="o">]</span> <span class="c1"># doesn&#39;t match</span>
+confused with <code>\Z</code> which is the equivalent of <code>/\n?\z/</code>).</p>
+<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby"><span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;some injection</span><span class="se">\n</span><span class="s2">username&quot;</span>
+<span class="n">string</span><span class="o">[</span><span class="sr">/^username$/</span><span class="o">]</span>   <span class="c1"># matches</span>
+<span class="n">string</span><span class="o">[</span><span class="sr">/\Ausername\z/</span><span class="o">]</span> <span class="c1"># doesn&#39;t match</span>
 </code></pre></div>
-<ul>
-<li><a name="comment-regexes"></a>
-Use <code>x</code> modifier for complex regexps. This makes them more readable and you
-can add some useful comments. Just be careful as spaces are ignored.</li>
-</ul>
-<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby">  <span class="n">regexp</span> <span class="o">=</span> <span class="sr">/</span>
-<span class="sr">    start         # some text</span>
-<span class="sr">    \s            # white space char</span>
-<span class="sr">    (group)       # first group</span>
-<span class="sr">    (?:alt1|alt2) # some alternation</span>
-<span class="sr">    end</span>
-<span class="sr">  /x</span>
+<h3 id="complex-expressions">Complex expressions</h3>
+
+<p>Use <code>x</code> modifier for complex regexps. This makes them more readable and you
+can add some useful comments. Just be careful as spaces are ignored.</p>
+<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby"><span class="n">regexp</span> <span class="o">=</span> <span class="sr">/</span>
+<span class="sr">  start         # some text</span>
+<span class="sr">  \s            # white space char</span>
+<span class="sr">  (group)       # first group</span>
+<span class="sr">  (?:alt1|alt2) # some alternation</span>
+<span class="sr">  end</span>
+<span class="sr">/x</span>
 </code></pre></div>
-<ul>
-<li><a name="gsub-blocks"></a>
-For complex replacements <code>sub</code>/<code>gsub</code> can be used with block or hash.</li>
-</ul>
+<h3 id="substituting-values-in-strings">Substituting values in Strings</h3>
 
-<h2 id="percent-literals">Percent Literals</h2>
+<p>For complex replacements <code>sub</code>/<code>gsub</code> can be used with block or hash.</p>
 
-<ul>
-<li><a name="percent-q-shorthand"></a>
-Use <code>%()</code>(it&#39;s a shorthand for <code>%Q</code>) for single-line strings which require
+<h2 id="percent-literals-different">Percent Literals <span class="label label--different">different</span></h2>
+
+<h3 id="single-line-interpolated-strings">Single line interpolated Strings</h3>
+
+<p>Use <code>%{}</code>(it&#39;s a shorthand for <code>%Q</code>) for single-line strings which require
 both interpolation and embedded double-quotes. For multi-line strings, prefer
-heredocs.</li>
-</ul>
-<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby">  <span class="c1"># bad (no interpolation needed)</span>
-  <span class="sx">%(&lt;div class=&quot;text&quot;&gt;Some text&lt;/div&gt;)</span>
-  <span class="c1"># should be &#39;&lt;div class=&quot;text&quot;&gt;Some text&lt;/div&gt;&#39;</span>
+heredocs.</p>
+<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby"><span class="c1"># bad (no interpolation needed)</span>
+<span class="sx">%{&lt;div class=&quot;text&quot;&gt;Some text&lt;/div&gt;}</span>
+<span class="c1"># should be &#39;&lt;div class=&quot;text&quot;&gt;Some text&lt;/div&gt;&#39;</span>
 
-  <span class="c1"># bad (no double-quotes)</span>
-  <span class="sx">%(This is </span><span class="si">#{</span><span class="n">quality</span><span class="si">}</span><span class="sx"> style)</span>
-  <span class="c1"># should be &quot;This is #{quality} style&quot;</span>
+<span class="c1"># bad (no double-quotes)</span>
+<span class="sx">%{This is </span><span class="si">#{</span><span class="n">quality</span><span class="si">}</span><span class="sx"> style}</span>
+<span class="c1"># should be &quot;This is #{quality} style&quot;</span>
 
-  <span class="c1"># bad (multiple lines)</span>
-  <span class="sx">%(&lt;div&gt;</span><span class="se">\n</span><span class="sx">&lt;span class=&quot;big&quot;&gt;</span><span class="si">#{</span><span class="n">exclamation</span><span class="si">}</span><span class="sx">&lt;/span&gt;</span><span class="se">\n</span><span class="sx">&lt;/div&gt;)</span>
-  <span class="c1"># should be a heredoc.</span>
+<span class="c1"># bad (multiple lines)</span>
+<span class="sx">%{&lt;div&gt;</span><span class="se">\n</span><span class="sx">&lt;span class=&quot;big&quot;&gt;</span><span class="si">#{</span><span class="n">exclamation</span><span class="si">}</span><span class="sx">&lt;/span&gt;</span><span class="se">\n</span><span class="sx">&lt;/div&gt;}</span>
+<span class="c1"># should be a heredoc.</span>
 
-  <span class="c1"># good (requires interpolation, has quotes, single line)</span>
-  <span class="sx">%(&lt;tr&gt;&lt;td class=&quot;name&quot;&gt;</span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="sx">&lt;/td&gt;)</span>
+<span class="c1"># good (requires interpolation, has quotes, single line)</span>
+<span class="sx">%{&lt;tr&gt;&lt;td class=&quot;name&quot;&gt;</span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="sx">&lt;/td&gt;}</span>
 </code></pre></div>
-<ul>
-<li><a name="percent-q"></a>
-Avoid <code>%q</code> unless you have a string with both <code>&#39;</code> and <code>&quot;</code> in it. Regular
+<h3 id="percent-q">Percent Q</h3>
+
+<p>Avoid <code>%q</code> unless you have a string with both <code>&#39;</code> and <code>&quot;</code> in it. Regular
 string literals are more readable and should be preferred unless a lot of
-characters would have to be escaped in them.</li>
-</ul>
-<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby">  <span class="c1"># bad</span>
-  <span class="nb">name</span> <span class="o">=</span> <span class="sx">%q(Bruce Wayne)</span>
-  <span class="n">time</span> <span class="o">=</span> <span class="sx">%q(8 o&#39;clock)</span>
-  <span class="n">question</span> <span class="o">=</span> <span class="sx">%q(&quot;What did you say?&quot;)</span>
+characters would have to be escaped in them.</p>
+<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby"><span class="c1"># bad</span>
+<span class="nb">name</span> <span class="o">=</span> <span class="sx">%q(Bruce Wayne)</span>
+<span class="n">time</span> <span class="o">=</span> <span class="sx">%q(8 o&#39;clock)</span>
+<span class="n">question</span> <span class="o">=</span> <span class="sx">%q(&quot;What did you say?&quot;)</span>
 
-  <span class="c1"># good</span>
-  <span class="nb">name</span> <span class="o">=</span> <span class="s1">&#39;Bruce Wayne&#39;</span>
-  <span class="n">time</span> <span class="o">=</span> <span class="s2">&quot;8 o&#39;clock&quot;</span>
-  <span class="n">question</span> <span class="o">=</span> <span class="s1">&#39;&quot;What did you say?&quot;&#39;</span>
+<span class="c1"># good</span>
+<span class="nb">name</span> <span class="o">=</span> <span class="s1">&#39;Bruce Wayne&#39;</span>
+<span class="n">time</span> <span class="o">=</span> <span class="s2">&quot;8 o&#39;clock&quot;</span>
+<span class="n">question</span> <span class="o">=</span> <span class="s1">&#39;&quot;What did you say?&quot;&#39;</span>
 </code></pre></div>
-<ul>
-<li><a name="percent-r"></a>
-Use <code>%r</code> only for regular expressions matching <em>at least</em> one &#39;/&#39;
-character.</li>
-</ul>
-<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby">  <span class="c1"># bad</span>
-  <span class="sr">%r{\s+}</span>
+<h3 id="percent-r">Percent R</h3>
 
-  <span class="c1"># good</span>
-  <span class="sr">%r{^/(.*)$}</span>
-  <span class="sr">%r{^/blog/2011/(.*)$}</span>
-</code></pre></div>
-<ul>
-<li><a name="percent-x"></a>
-Avoid the use of <code>%x</code> unless you&#39;re going to invoke a command with
-backquotes in it(which is rather unlikely).</li>
-</ul>
-<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby">  <span class="c1"># bad</span>
-  <span class="n">date</span> <span class="o">=</span> <span class="sx">%x(date)</span>
+<p>Use <code>%r</code> only for regular expressions matching <em>at least</em> one &#39;/&#39;
+character.</p>
+<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby"><span class="c1"># bad</span>
+<span class="sr">%r{\s+}</span>
 
-  <span class="c1"># good</span>
-  <span class="n">date</span> <span class="o">=</span> <span class="sb">`date`</span>
-  <span class="n">echo</span> <span class="o">=</span> <span class="sx">%x(echo `date`)</span>
+<span class="c1"># good</span>
+<span class="sr">%r{^/(.*)$}</span>
+<span class="sr">%r{^/blog/2011/(.*)$}</span>
 </code></pre></div>
-<ul>
-<li><a name="percent-s"></a>
-Avoid the use of <code>%s</code>. It seems that the community has decided <code>:&quot;some
-string&quot;</code> is the preferred way to create a symbol with spaces in it.</li>
-</ul>
+<h3 id="percent-x">Percent X</h3>
+
+<p>Avoid the use of <code>%x</code> unless you&#39;re going to invoke a command with
+backquotes in it(which is rather unlikely).</p>
+<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby"><span class="c1"># bad</span>
+<span class="n">date</span> <span class="o">=</span> <span class="sx">%x(date)</span>
+
+<span class="c1"># good</span>
+<span class="n">date</span> <span class="o">=</span> <span class="sb">`date`</span>
+<span class="n">echo</span> <span class="o">=</span> <span class="sx">%x(echo `date`)</span>
+</code></pre></div>
+<h3 id="percent-s">Percent S</h3>
+
+<p>Avoid the use of <code>%s</code>. It seems that the community has decided <code>:&quot;some
+string&quot;</code> is the preferred way to create a symbol with spaces in it.</p>
 
 <h3 id="delimiting-literals-different">Delimiting literals <span class="label label--different">different</span></h3>
 
@@ -3224,5 +3203,15 @@ private.</p>
         </div>
       </div>
     </div>
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-26961925-4', 'auto');
+  ga('send', 'pageview');
+
+</script>
   </body>
 </html>
