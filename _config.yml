@@ -11,3 +11,10 @@ redcarpet:
   extensions: ["tables", "autolink", "strikethrough", "space_after_headers", "with_toc_data", "fenced_code_blocks"]
 
 katana_code_url: "//katanacode.com"
+
+highlighter: pygments
+github: [Repository metadata]
+
+safe: true
+lsi: false
+source: _site
