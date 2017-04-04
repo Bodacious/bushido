@@ -19,13 +19,13 @@
 
 <script src="/assets/vendor/toc.js"></script>
 <script src="/assets/bushido.js"></script>
-    
+
   </head>
   <body>
     <div class="container">
       <div class="row">
         <div class="col-xs-12 col-sm-3">
-          <div id="toc"></div>          
+          <div id="toc"></div>
         </div>
         <div class="col-xs-12 col-sm-9">
           <h2>Katana's Ruby Style Guide</h2>
@@ -38,7 +38,7 @@
 
 <h3 id="utf-encoding">UTF Encoding</h3>
 
-<p>Use <code>UTF-8</code> as the source file encoding </p>
+<p>Use <code>UTF-8</code> as the source file encoding</p>
 
 <h3 id="use-soft-tabs">Use soft tabs</h3>
 
@@ -78,7 +78,7 @@
 </code></pre></div>
 <h3 id="use-consistent-class-naming-conventions-different">Use consistent class naming conventions  <span class="label label--different">different</span></h3>
 
-<p>Use the same, typical class definition, even for classes with no body </p>
+<p>Use the same, typical class definition, even for classes with no body</p>
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># wat?!</span>
 <span class="no">FooError</span> <span class="o">=</span> <span class="no">Class</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="no">StandardError</span><span class="p">)</span>
 
@@ -93,7 +93,7 @@
 
 <p>Although they are somewhat popular in the wild,
 there are a few peculiarities about their definition syntax that make their
-use undesirable. </p>
+use undesirable.</p>
 <div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby"><span class="c1"># bad</span>
 <span class="k">def</span> <span class="nf">too_much</span><span class="p">;</span> <span class="n">something</span><span class="p">;</span> <span class="n">something_else</span><span class="p">;</span> <span class="k">end</span>
 
@@ -148,7 +148,7 @@ for block and hash literals, as well as string interpolation:</p>
 </code></pre></div>
 <ul>
 <li><p>The first variant is slightly more readable (and arguably more
-popular in the Ruby community in general). </p></li>
+popular in the Ruby community in general).</p></li>
 <li><p>The second variant has the advantage of adding visual difference between block and hash
 literals. Whichever one you pick - apply it consistently.</p></li>
 </ul>
@@ -275,7 +275,7 @@ Programming Language&quot; and &quot;Programming Ruby&quot;. (Plus it&#39;s how 
 
 <span class="c1"># This method is screaming to be extracted into two smaller methods</span>
 <span class="k">def</span> <span class="nf">get_daily_comment_names</span>
-  <span class="n">comments</span> <span class="o">=</span> <span class="no">Blogit</span><span class="o">::</span><span class="no">Comment</span><span class="o">.</span><span class="n">order</span><span class="p">(</span><span class="s2">&quot;created_at&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">all</span>  
+  <span class="n">comments</span> <span class="o">=</span> <span class="no">Blogit</span><span class="o">::</span><span class="no">Comment</span><span class="o">.</span><span class="n">order</span><span class="p">(</span><span class="s2">&quot;created_at&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">all</span>
 
   <span class="c1"># This line should be extracted into a separate method, not just split with an empty line</span>
   <span class="n">comments_sorted_by_day</span> <span class="o">=</span> <span class="n">comments</span><span class="o">.</span><span class="n">chunk</span> <span class="p">{</span> <span class="o">|</span><span class="n">comment</span><span class="o">|</span> <span class="n">comment</span><span class="o">.</span><span class="n">created_at</span><span class="o">.</span><span class="n">to_date</span> <span class="p">}</span>
@@ -285,11 +285,11 @@ Programming Language&quot; and &quot;Programming Ruby&quot;. (Plus it&#39;s how 
 
 <span class="c1"># ... like this</span>
 <span class="k">def</span> <span class="nf">get_daily_comment_names</span>
-  <span class="nb">self</span><span class="o">.</span><span class="n">comments</span> <span class="o">=</span> <span class="no">Blogit</span><span class="o">::</span><span class="no">Comment</span><span class="o">.</span><span class="n">order</span><span class="p">(</span><span class="s2">&quot;created_at&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">all</span>    
+  <span class="nb">self</span><span class="o">.</span><span class="n">comments</span> <span class="o">=</span> <span class="no">Blogit</span><span class="o">::</span><span class="no">Comment</span><span class="o">.</span><span class="n">order</span><span class="p">(</span><span class="s2">&quot;created_at&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">all</span>
   <span class="n">comments_sorted_by_day</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">day</span><span class="p">,</span> <span class="n">collection</span><span class="o">|</span> <span class="o">[</span><span class="n">day</span><span class="p">,</span> <span class="n">collection</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:name</span><span class="p">)</span><span class="o">]</span> <span class="p">}</span>
 <span class="k">end</span>
 
-<span class="k">def</span> <span class="nf">comments_sorted_by_day</span> 
+<span class="k">def</span> <span class="nf">comments_sorted_by_day</span>
   <span class="n">comments</span><span class="o">.</span><span class="n">chunk</span> <span class="p">{</span> <span class="o">|</span><span class="n">comment</span><span class="o">|</span> <span class="n">comment</span><span class="o">.</span><span class="n">created_at</span><span class="o">.</span><span class="n">to_date</span> <span class="p">}</span>
 <span class="k">end</span>
 
@@ -350,14 +350,14 @@ line continuations for anything but string concatenation.</p>
 <div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby"><span class="c1"># bad</span>
 <span class="n">result</span> <span class="o">=</span> <span class="s2">&quot;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.&quot;</span>
 
-<span class="c1"># good </span>
-<span class="n">result</span> <span class="o">=</span> <span class="s2">&quot;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod &quot;</span> <span class="p">\</span> 
+<span class="c1"># good</span>
+<span class="n">result</span> <span class="o">=</span> <span class="s2">&quot;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod &quot;</span> <span class="p">\</span>
            <span class="s2">&quot;tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,&quot;</span><span class="p">\</span>
            <span class="s2">&quot;quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo&quot;</span><span class="p">\</span>
-           <span class="s2">&quot;consequat.&quot;</span>              
+           <span class="s2">&quot;consequat.&quot;</span>
 
 <span class="c1"># also good</span>
-<span class="n">result</span> <span class="o">=</span> <span class="s2">&quot;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod \ </span>
+<span class="n">result</span> <span class="o">=</span> <span class="s2">&quot;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod \</span>
 <span class="s2">tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\</span>
 <span class="s2">quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.&quot;</span>
 </code></pre></div>
@@ -455,9 +455,9 @@ line continuations for anything but string concatenation.</p>
 
 <p>Where possible, avoid trailing whitespace.</p>
 
-<h3 id="avoid-new-lines-at-the-end-of-files-different">Avoid new lines at the end of files <span class="label label--different">different</span></h3>
+<h3 id="avoid-new-lines-at-the-end-of-files">Avoid new lines at the end of files</h3>
 
-<p>No need to end each file with a newline—that&#39;s silly.</p>
+<p>If possible, set up your text-editor to add these.</p>
 
 <h3 id="avoid-block-comments">Avoid block comments</h3>
 
@@ -520,7 +520,7 @@ parentheses when the method doesn&#39;t accept any parameters.</p>
 <p>Avoid the use of parallel assignment for defining variables. It&#39;s fun, but also harder to read and maintain.</p>
 
 <p>Parallel assignment is allowed when it is the return of a method call, used with
-the splat operator, or when used to swap variable assignment. </p>
+the splat operator, or when used to swap variable assignment.</p>
 
 <p>Parallel assignment is less readable than separate assignment. It is also slightly
 slower than separate assignment.</p>
@@ -678,7 +678,7 @@ in its block will be visible outside it.</p>
 </code></pre></div>
 <h3 id="use-when-required-different">Use  <code>!!</code> when required <span class="label label--different">different</span></h3>
 
-<p>The double–bang operator is a quick and efficient way to convert a non-boolean 
+<p>The double–bang operator is a quick and efficient way to convert a non-boolean
   value into it&#39;s boolean equivalent. This is useful when a method contract specifically  expects a boolean value to be returned.</p>
 
 <p>Double-bangs are cheaper than using <code>nil?</code> or <code>blank?</code> etc. because fewer method calls are required.</p>
@@ -713,7 +713,7 @@ in its block will be visible outside it.</p>
 
 <p><code>&amp;&amp;</code> is a character shorter than <code>and</code> — woop! #gains</p>
 
-<p>Apart from that, <code>and</code> and <code>or</code> cannot be used within <code>where</code> statements 
+<p>Apart from that, <code>and</code> and <code>or</code> cannot be used within <code>where</code> statements
   (among other places), meaning you either have to choose one style, or mix the two.</p>
 
 <p>We choose one style.</p>
@@ -958,293 +958,290 @@ internal DSL.</p>
 <span class="nb">fork</span>
 <span class="s1">&#39;test&#39;</span><span class="o">.</span><span class="n">upcase</span>
 </code></pre></div>
-<ul>
-<li><a name="single-action-blocks"></a>
-Use the proc invocation shorthand when the invoked method is the only operation of a block.</li>
-</ul>
-<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby">  <span class="c1"># bad</span>
-  <span class="n">names</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="o">|</span><span class="nb">name</span><span class="o">|</span> <span class="nb">name</span><span class="o">.</span><span class="n">upcase</span> <span class="p">}</span>
+<h3 id="single-method-blocks">Single-method blocks</h3>
 
-  <span class="c1"># good</span>
-  <span class="n">names</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:upcase</span><span class="p">)</span>
+<p>Use the proc invocation shorthand when the invoked method is the only operation of a block.</p>
+<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby"><span class="c1"># bad</span>
+<span class="n">names</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="o">|</span><span class="nb">name</span><span class="o">|</span> <span class="nb">name</span><span class="o">.</span><span class="n">upcase</span> <span class="p">}</span>
+
+<span class="c1"># good</span>
+<span class="n">names</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:upcase</span><span class="p">)</span>
 </code></pre></div>
-<ul>
-<li><a name="single-line-blocks"></a>
-Prefer <code>{...}</code> over <code>do...end</code> for single-line blocks.  Avoid using <code>{...}</code>
+<h3 id="single-line-blocks">Single line blocks</h3>
+
+<p>Prefer <code>{...}</code> over <code>do...end</code> for single-line blocks.  Avoid using <code>{...}</code>
 for multi-line blocks (multiline chaining is always ugly). Always use
 <code>do...end</code> for &quot;control flow&quot; and &quot;method definitions&quot; (e.g. in Rakefiles and
-certain DSLs).  Avoid <code>do...end</code> when chaining.</li>
-</ul>
-<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby">  <span class="n">names</span> <span class="o">=</span> <span class="sx">%w(Bozhidar Steve Sarah)</span>
+certain DSLs).  Avoid <code>do...end</code> when chaining.</p>
+<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby"><span class="n">names</span> <span class="o">=</span> <span class="sx">%w(Bozhidar Steve Sarah)</span>
 
-  <span class="c1"># bad</span>
-  <span class="n">names</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="nb">name</span><span class="o">|</span>
-    <span class="nb">puts</span> <span class="nb">name</span>
-  <span class="k">end</span>
+<span class="c1"># bad</span>
+<span class="n">names</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="nb">name</span><span class="o">|</span>
+  <span class="nb">puts</span> <span class="nb">name</span>
+<span class="k">end</span>
 
-  <span class="c1"># good</span>
-  <span class="n">names</span><span class="o">.</span><span class="n">each</span> <span class="p">{</span> <span class="o">|</span><span class="nb">name</span><span class="o">|</span> <span class="nb">puts</span> <span class="nb">name</span> <span class="p">}</span>
+<span class="c1"># good</span>
+<span class="n">names</span><span class="o">.</span><span class="n">each</span> <span class="p">{</span> <span class="o">|</span><span class="nb">name</span><span class="o">|</span> <span class="nb">puts</span> <span class="nb">name</span> <span class="p">}</span>
 
-  <span class="c1"># bad</span>
-  <span class="n">names</span><span class="o">.</span><span class="n">select</span> <span class="k">do</span> <span class="o">|</span><span class="nb">name</span><span class="o">|</span>
-    <span class="nb">name</span><span class="o">.</span><span class="n">start_with?</span><span class="p">(</span><span class="s1">&#39;S&#39;</span><span class="p">)</span>
-  <span class="k">end</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="o">|</span><span class="nb">name</span><span class="o">|</span> <span class="nb">name</span><span class="o">.</span><span class="n">upcase</span> <span class="p">}</span>
+<span class="c1"># bad</span>
+<span class="n">names</span><span class="o">.</span><span class="n">select</span> <span class="k">do</span> <span class="o">|</span><span class="nb">name</span><span class="o">|</span>
+  <span class="nb">name</span><span class="o">.</span><span class="n">start_with?</span><span class="p">(</span><span class="s1">&#39;S&#39;</span><span class="p">)</span>
+<span class="k">end</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="o">|</span><span class="nb">name</span><span class="o">|</span> <span class="nb">name</span><span class="o">.</span><span class="n">upcase</span> <span class="p">}</span>
 
-  <span class="c1"># good</span>
-  <span class="n">names</span><span class="o">.</span><span class="n">select</span> <span class="p">{</span> <span class="o">|</span><span class="nb">name</span><span class="o">|</span> <span class="nb">name</span><span class="o">.</span><span class="n">start_with?</span><span class="p">(</span><span class="s1">&#39;S&#39;</span><span class="p">)</span> <span class="p">}</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:upcase</span><span class="p">)</span>
+<span class="c1"># good</span>
+<span class="n">names</span><span class="o">.</span><span class="n">select</span> <span class="p">{</span> <span class="o">|</span><span class="nb">name</span><span class="o">|</span> <span class="nb">name</span><span class="o">.</span><span class="n">start_with?</span><span class="p">(</span><span class="s1">&#39;S&#39;</span><span class="p">)</span> <span class="p">}</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:upcase</span><span class="p">)</span>
 </code></pre></div>
 <p>Some will argue that multiline chaining would look OK with the use of {...},
-  but they should ask themselves - is this code really readable and can the
-  blocks&#39; contents be extracted into nifty methods?</p>
+but they should ask themselves - is this code really readable and can the
+blocks&#39; contents be extracted into nifty methods?</p>
 
-<ul>
-<li><a name="block-argument"></a>
-Consider using explicit block argument to avoid writing block literal that
+<h3 id="block-arguments">Block arguments</h3>
+
+<p>Consider using explicit block argument to avoid writing block literal that
 just passes its arguments to another block. Beware of the performance impact,
-though, as the block gets converted to a Proc.</li>
-</ul>
-<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby">  <span class="nb">require</span> <span class="s1">&#39;tempfile&#39;</span>
+though, as the block gets converted to a Proc.</p>
+<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby"><span class="nb">require</span> <span class="s1">&#39;tempfile&#39;</span>
 
-  <span class="c1"># bad</span>
-  <span class="k">def</span> <span class="nf">with_tmp_dir</span>
-    <span class="no">Dir</span><span class="o">.</span><span class="n">mktmpdir</span> <span class="k">do</span> <span class="o">|</span><span class="n">tmp_dir</span><span class="o">|</span>
-      <span class="no">Dir</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">tmp_dir</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">dir</span><span class="o">|</span> <span class="k">yield</span> <span class="n">dir</span> <span class="p">}</span>  <span class="c1"># block just passes arguments</span>
-    <span class="k">end</span>
+<span class="c1"># bad</span>
+<span class="k">def</span> <span class="nf">with_tmp_dir</span>
+  <span class="no">Dir</span><span class="o">.</span><span class="n">mktmpdir</span> <span class="k">do</span> <span class="o">|</span><span class="n">tmp_dir</span><span class="o">|</span>
+    <span class="no">Dir</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">tmp_dir</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">dir</span><span class="o">|</span> <span class="k">yield</span> <span class="n">dir</span> <span class="p">}</span>  <span class="c1"># block just passes arguments</span>
   <span class="k">end</span>
+<span class="k">end</span>
 
-  <span class="c1"># good</span>
-  <span class="k">def</span> <span class="nf">with_tmp_dir</span><span class="p">(</span><span class="o">&amp;</span><span class="n">block</span><span class="p">)</span>
-    <span class="no">Dir</span><span class="o">.</span><span class="n">mktmpdir</span> <span class="k">do</span> <span class="o">|</span><span class="n">tmp_dir</span><span class="o">|</span>
-      <span class="no">Dir</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">tmp_dir</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">block</span><span class="p">)</span>
-    <span class="k">end</span>
+<span class="c1"># good</span>
+<span class="k">def</span> <span class="nf">with_tmp_dir</span><span class="p">(</span><span class="o">&amp;</span><span class="n">block</span><span class="p">)</span>
+  <span class="no">Dir</span><span class="o">.</span><span class="n">mktmpdir</span> <span class="k">do</span> <span class="o">|</span><span class="n">tmp_dir</span><span class="o">|</span>
+    <span class="no">Dir</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">tmp_dir</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">block</span><span class="p">)</span>
   <span class="k">end</span>
+<span class="k">end</span>
 
-  <span class="n">with_tmp_dir</span> <span class="k">do</span> <span class="o">|</span><span class="n">dir</span><span class="o">|</span>
-    <span class="nb">puts</span> <span class="s2">&quot;dir is accessible as a parameter and pwd is set: </span><span class="si">#{</span><span class="n">dir</span><span class="si">}</span><span class="s2">&quot;</span>
-  <span class="k">end</span>
+<span class="n">with_tmp_dir</span> <span class="k">do</span> <span class="o">|</span><span class="n">dir</span><span class="o">|</span>
+  <span class="nb">puts</span> <span class="s2">&quot;dir is accessible as a parameter and pwd is set: </span><span class="si">#{</span><span class="n">dir</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="k">end</span>
 </code></pre></div>
-<ul>
-<li><a name="no-explicit-return"></a>
-Avoid <code>return</code> where not required for flow of control.</li>
-</ul>
-<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby">  <span class="c1"># bad</span>
-  <span class="k">def</span> <span class="nf">some_method</span><span class="p">(</span><span class="n">some_arr</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">some_arr</span><span class="o">.</span><span class="n">size</span>
-  <span class="k">end</span>
+<h3 id="avoid-explicit-return">Avoid explicit <code>return</code></h3>
 
-  <span class="c1"># good</span>
-  <span class="k">def</span> <span class="nf">some_method</span><span class="p">(</span><span class="n">some_arr</span><span class="p">)</span>
-    <span class="n">some_arr</span><span class="o">.</span><span class="n">size</span>
-  <span class="k">end</span>
+<p>Avoid <code>return</code> where not required for flow of control. Even though this is faster, it&#39;s more code to manage and is arguably little less readable.</p>
+<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby"><span class="c1"># bad</span>
+<span class="k">def</span> <span class="nf">some_method</span><span class="p">(</span><span class="n">some_arr</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">some_arr</span><span class="o">.</span><span class="n">size</span>
+<span class="k">end</span>
+
+<span class="c1"># good</span>
+<span class="k">def</span> <span class="nf">some_method</span><span class="p">(</span><span class="n">some_arr</span><span class="p">)</span>
+  <span class="n">some_arr</span><span class="o">.</span><span class="n">size</span>
+<span class="k">end</span>
 </code></pre></div>
-<ul>
-<li><a name="no-self-unless-required"></a>
-Avoid <code>self</code> where not required. (It is only required when calling a self
-write accessor.)</li>
-</ul>
-<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby">  <span class="c1"># bad</span>
-  <span class="k">def</span> <span class="nf">ready?</span>
-    <span class="k">if</span> <span class="nb">self</span><span class="o">.</span><span class="n">last_reviewed_at</span> <span class="o">&gt;</span> <span class="nb">self</span><span class="o">.</span><span class="n">last_updated_at</span>
-      <span class="nb">self</span><span class="o">.</span><span class="n">worker</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="nb">self</span><span class="o">.</span><span class="n">content</span><span class="p">,</span> <span class="nb">self</span><span class="o">.</span><span class="n">options</span><span class="p">)</span>
-      <span class="nb">self</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="ss">:in_progress</span>
-    <span class="k">end</span>
-    <span class="nb">self</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="ss">:verified</span>
-  <span class="k">end</span>
+<h3 id="avoid-self-unless-required">Avoid <code>self</code> unless required</h3>
 
-  <span class="c1"># good</span>
-  <span class="k">def</span> <span class="nf">ready?</span>
-    <span class="k">if</span> <span class="n">last_reviewed_at</span> <span class="o">&gt;</span> <span class="n">last_updated_at</span>
-      <span class="n">worker</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">content</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
-      <span class="nb">self</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="ss">:in_progress</span>
-    <span class="k">end</span>
-    <span class="n">status</span> <span class="o">==</span> <span class="ss">:verified</span>
+<p>Avoid <code>self</code> where not required. (It is only required when calling a self
+write accessor.)</p>
+<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby"><span class="c1"># bad</span>
+<span class="k">def</span> <span class="nf">ready?</span>
+  <span class="k">if</span> <span class="nb">self</span><span class="o">.</span><span class="n">last_reviewed_at</span> <span class="o">&gt;</span> <span class="nb">self</span><span class="o">.</span><span class="n">last_updated_at</span>
+    <span class="nb">self</span><span class="o">.</span><span class="n">worker</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="nb">self</span><span class="o">.</span><span class="n">content</span><span class="p">,</span> <span class="nb">self</span><span class="o">.</span><span class="n">options</span><span class="p">)</span>
+    <span class="nb">self</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="ss">:in_progress</span>
   <span class="k">end</span>
+  <span class="nb">self</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="ss">:verified</span>
+<span class="k">end</span>
+
+<span class="c1"># good</span>
+<span class="k">def</span> <span class="nf">ready?</span>
+  <span class="k">if</span> <span class="n">last_reviewed_at</span> <span class="o">&gt;</span> <span class="n">last_updated_at</span>
+    <span class="n">worker</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">content</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
+    <span class="nb">self</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="ss">:in_progress</span>
+  <span class="k">end</span>
+  <span class="n">status</span> <span class="o">==</span> <span class="ss">:verified</span>
+<span class="k">end</span>
 </code></pre></div>
-<ul>
-<li><a name="no-shadowing"></a>
-As a corollary, avoid shadowing methods with local variables unless they are
-both equivalent.</li>
-</ul>
-<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby">  <span class="k">class</span> <span class="nc">Foo</span>
-    <span class="kp">attr_accessor</span> <span class="ss">:options</span>
+<h3 id="don-39-t-shadow-methods-with-vars">Don&#39;t shadow methods with vars</h3>
 
-    <span class="c1"># ok</span>
-    <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">options</span><span class="p">)</span>
-      <span class="nb">self</span><span class="o">.</span><span class="n">options</span> <span class="o">=</span> <span class="n">options</span>
-      <span class="c1"># both options and self.options are equivalent here</span>
-    <span class="k">end</span>
-
-    <span class="c1"># bad</span>
-    <span class="k">def</span> <span class="nf">do_something</span><span class="p">(</span><span class="n">options</span> <span class="o">=</span> <span class="p">{})</span>
-      <span class="k">unless</span> <span class="n">options</span><span class="o">[</span><span class="ss">:when</span><span class="o">]</span> <span class="o">==</span> <span class="ss">:later</span>
-        <span class="n">output</span><span class="p">(</span><span class="nb">self</span><span class="o">.</span><span class="n">options</span><span class="o">[</span><span class="ss">:message</span><span class="o">]</span><span class="p">)</span>
-      <span class="k">end</span>
-    <span class="k">end</span>
-
-    <span class="c1"># good</span>
-    <span class="k">def</span> <span class="nf">do_something</span><span class="p">(</span><span class="n">params</span> <span class="o">=</span> <span class="p">{})</span>
-      <span class="k">unless</span> <span class="n">params</span><span class="o">[</span><span class="ss">:when</span><span class="o">]</span> <span class="o">==</span> <span class="ss">:later</span>
-        <span class="n">output</span><span class="p">(</span><span class="n">options</span><span class="o">[</span><span class="ss">:message</span><span class="o">]</span><span class="p">)</span>
-      <span class="k">end</span>
-    <span class="k">end</span>
-  <span class="k">end</span>
-</code></pre></div>
-<ul>
-<li><a name="safe-assignment-in-condition"></a>
-Don&#39;t use the return value of <code>=</code> (an assignment) in conditional expressions
-unless the assignment is wrapped in parentheses. This is a fairly popular
-idiom among Rubyists that&#39;s sometimes referred to as <em>safe assignment in
-condition</em>.</li>
-</ul>
-<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby">  <span class="c1"># bad (+ a warning)</span>
-  <span class="k">if</span> <span class="n">v</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">grep</span><span class="p">(</span><span class="sr">/foo/</span><span class="p">)</span>
-    <span class="n">do_something</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">.</span><span class="o">.</span>
-  <span class="k">end</span>
-
-  <span class="c1"># good (MRI would still complain, but RuboCop won&#39;t)</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">v</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">grep</span><span class="p">(</span><span class="sr">/foo/</span><span class="p">))</span>
-    <span class="n">do_something</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">.</span><span class="o">.</span>
-  <span class="k">end</span>
-
-  <span class="c1"># good</span>
-  <span class="n">v</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">grep</span><span class="p">(</span><span class="sr">/foo/</span><span class="p">)</span>
-  <span class="k">if</span> <span class="n">v</span>
-    <span class="n">do_something</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">.</span><span class="o">.</span>
-  <span class="k">end</span>
-</code></pre></div>
-<ul>
-<li><a name="self-assignment"></a>
-Use shorthand self assignment operators whenever applicable.</li>
-</ul>
-<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby">  <span class="c1"># bad</span>
-  <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
-  <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span>
-  <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="n">y</span>
-  <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">/</span> <span class="n">y</span>
-  <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">||</span> <span class="n">y</span>
-  <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">&amp;&amp;</span> <span class="n">y</span>
-
-  <span class="c1"># good</span>
-  <span class="n">x</span> <span class="o">+=</span> <span class="n">y</span>
-  <span class="n">x</span> <span class="o">*=</span> <span class="n">y</span>
-  <span class="n">x</span> <span class="o">**=</span> <span class="n">y</span>
-  <span class="n">x</span> <span class="o">/=</span> <span class="n">y</span>
-  <span class="n">x</span> <span class="o">||=</span> <span class="n">y</span>
-  <span class="n">x</span> <span class="o">&amp;&amp;=</span> <span class="n">y</span>
-</code></pre></div>
-<ul>
-<li><a name="double-pipe-for-uninit"></a>
-Use <code>||=</code> to initialize variables only if they&#39;re not already initialized.</li>
-</ul>
-<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby">  <span class="c1"># bad</span>
-  <span class="nb">name</span> <span class="o">=</span> <span class="nb">name</span> <span class="p">?</span> <span class="nb">name</span> <span class="p">:</span> <span class="s1">&#39;Bozhidar&#39;</span>
-
-  <span class="c1"># bad</span>
-  <span class="nb">name</span> <span class="o">=</span> <span class="s1">&#39;Bozhidar&#39;</span> <span class="k">unless</span> <span class="nb">name</span>
-
-  <span class="c1"># good - set name to Bozhidar, only if it&#39;s nil or false</span>
-  <span class="nb">name</span> <span class="o">||=</span> <span class="s1">&#39;Bozhidar&#39;</span>
-</code></pre></div>
-<ul>
-<li><a name="no-double-pipes-for-bools"></a>
-Don&#39;t use <code>||=</code> to initialize boolean variables. (Consider what would happen
-if the current value happened to be <code>false</code>.)</li>
-</ul>
-<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby">  <span class="c1"># bad - would set enabled to true even if it was false</span>
-  <span class="n">enabled</span> <span class="o">||=</span> <span class="kp">true</span>
-
-  <span class="c1"># good</span>
-  <span class="n">enabled</span> <span class="o">=</span> <span class="kp">true</span> <span class="k">if</span> <span class="n">enabled</span><span class="o">.</span><span class="n">nil?</span>
-</code></pre></div>
-<ul>
-<li><a name="double-amper-preprocess"></a>
-Use <code>&amp;&amp;=</code> to preprocess variables that may or may not exist. Using <code>&amp;&amp;=</code>
-will change the value only if it exists, removing the need to check its
-existence with <code>if</code>.</li>
-</ul>
-<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby">  <span class="c1"># bad</span>
-  <span class="k">if</span> <span class="n">something</span>
-    <span class="n">something</span> <span class="o">=</span> <span class="n">something</span><span class="o">.</span><span class="n">downcase</span>
-  <span class="k">end</span>
-
-  <span class="c1"># bad</span>
-  <span class="n">something</span> <span class="o">=</span> <span class="n">something</span> <span class="p">?</span> <span class="n">something</span><span class="o">.</span><span class="n">downcase</span> <span class="p">:</span> <span class="kp">nil</span>
+<p>As a corollary, avoid shadowing methods with local variables unless they are
+both equivalent.</p>
+<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby"><span class="k">class</span> <span class="nc">Foo</span>
+  <span class="kp">attr_accessor</span> <span class="ss">:options</span>
 
   <span class="c1"># ok</span>
-  <span class="n">something</span> <span class="o">=</span> <span class="n">something</span><span class="o">.</span><span class="n">downcase</span> <span class="k">if</span> <span class="n">something</span>
+  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">options</span><span class="p">)</span>
+    <span class="nb">self</span><span class="o">.</span><span class="n">options</span> <span class="o">=</span> <span class="n">options</span>
+    <span class="c1"># both options and self.options are equivalent here</span>
+  <span class="k">end</span>
+
+  <span class="c1"># bad</span>
+  <span class="k">def</span> <span class="nf">do_something</span><span class="p">(</span><span class="n">options</span> <span class="o">=</span> <span class="p">{})</span>
+    <span class="k">unless</span> <span class="n">options</span><span class="o">[</span><span class="ss">:when</span><span class="o">]</span> <span class="o">==</span> <span class="ss">:later</span>
+      <span class="n">output</span><span class="p">(</span><span class="nb">self</span><span class="o">.</span><span class="n">options</span><span class="o">[</span><span class="ss">:message</span><span class="o">]</span><span class="p">)</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
 
   <span class="c1"># good</span>
-  <span class="n">something</span> <span class="o">=</span> <span class="n">something</span> <span class="o">&amp;&amp;</span> <span class="n">something</span><span class="o">.</span><span class="n">downcase</span>
+  <span class="k">def</span> <span class="nf">do_something</span><span class="p">(</span><span class="n">params</span> <span class="o">=</span> <span class="p">{})</span>
+    <span class="k">unless</span> <span class="n">params</span><span class="o">[</span><span class="ss">:when</span><span class="o">]</span> <span class="o">==</span> <span class="ss">:later</span>
+      <span class="n">output</span><span class="p">(</span><span class="n">options</span><span class="o">[</span><span class="ss">:message</span><span class="o">]</span><span class="p">)</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
 
-  <span class="c1"># better</span>
-  <span class="n">something</span> <span class="o">&amp;&amp;=</span> <span class="n">something</span><span class="o">.</span><span class="n">downcase</span>
+
+  <span class="c1"># also good</span>
+  <span class="k">def</span> <span class="nf">do_something</span><span class="p">(</span><span class="n">_options</span> <span class="o">=</span> <span class="p">{})</span>
+    <span class="k">unless</span> <span class="n">_options</span><span class="o">[</span><span class="ss">:when</span><span class="o">]</span> <span class="o">==</span> <span class="ss">:later</span>
+      <span class="n">output</span><span class="p">(</span><span class="n">_options</span><span class="o">[</span><span class="ss">:message</span><span class="o">]</span><span class="p">)</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
 </code></pre></div>
-<ul>
-<li><a name="no-case-equality"></a>
-Avoid explicit use of the case equality operator <code>===</code>. As its name implies
+<h3 id="assignment-in-conditionals">Assignment in conditionals</h3>
+
+<p>Don&#39;t use the return value of <code>=</code> (an assignment) in conditional expressions
+unless the assignment is wrapped in parentheses. This is a fairly popular
+idiom among Rubyists that&#39;s sometimes referred to as <em>safe assignment in
+condition</em>.</p>
+<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby"><span class="c1"># bad (+ a warning)</span>
+<span class="k">if</span> <span class="n">v</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">grep</span><span class="p">(</span><span class="sr">/foo/</span><span class="p">)</span>
+  <span class="n">do_something</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+  <span class="o">.</span><span class="n">.</span><span class="o">.</span>
+<span class="k">end</span>
+
+<span class="c1"># good (MRI would still complain, but RuboCop won&#39;t)</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">v</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">grep</span><span class="p">(</span><span class="sr">/foo/</span><span class="p">))</span>
+  <span class="n">do_something</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+  <span class="o">.</span><span class="n">.</span><span class="o">.</span>
+<span class="k">end</span>
+
+<span class="c1"># good</span>
+<span class="n">v</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">grep</span><span class="p">(</span><span class="sr">/foo/</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">v</span>
+  <span class="n">do_something</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+  <span class="o">.</span><span class="n">.</span><span class="o">.</span>
+<span class="k">end</span>
+</code></pre></div>
+<h3 id="use-shorthand-operators">Use shorthand operators</h3>
+
+<p>Use shorthand self assignment operators whenever applicable.</p>
+<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby"><span class="c1"># bad</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="n">y</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">/</span> <span class="n">y</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">||</span> <span class="n">y</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">&amp;&amp;</span> <span class="n">y</span>
+
+<span class="c1"># good</span>
+<span class="n">x</span> <span class="o">+=</span> <span class="n">y</span>
+<span class="n">x</span> <span class="o">*=</span> <span class="n">y</span>
+<span class="n">x</span> <span class="o">**=</span> <span class="n">y</span>
+<span class="n">x</span> <span class="o">/=</span> <span class="n">y</span>
+<span class="n">x</span> <span class="o">||=</span> <span class="n">y</span>
+<span class="n">x</span> <span class="o">&amp;&amp;=</span> <span class="n">y</span>
+</code></pre></div>
+<h3 id="use-double-pipes-for-defaults">Use double-pipes for defaults</h3>
+
+<p>Use <code>||=</code> to initialize variables only if they&#39;re not already initialized.</p>
+<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby"><span class="c1"># bad</span>
+<span class="nb">name</span> <span class="o">=</span> <span class="nb">name</span> <span class="p">?</span> <span class="nb">name</span> <span class="p">:</span> <span class="s1">&#39;Bozhidar&#39;</span>
+
+<span class="c1"># bad</span>
+<span class="nb">name</span> <span class="o">=</span> <span class="s1">&#39;Bozhidar&#39;</span> <span class="k">unless</span> <span class="nb">name</span>
+
+<span class="c1"># good - set name to Bozhidar, only if it&#39;s nil or false</span>
+<span class="nb">name</span> <span class="o">||=</span> <span class="s1">&#39;Bozhidar&#39;</span>
+</code></pre></div>
+<h3 id="don-39-t-use-double-pipes-for-bools">Don&#39;t use double-pipes for bools</h3>
+
+<p>Don&#39;t use <code>||=</code> to initialize boolean variables. (Consider what would happen
+if the current value happened to be <code>false</code>.)</p>
+<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby"><span class="c1"># bad - would set enabled to true even if it was false</span>
+<span class="n">enabled</span> <span class="o">||=</span> <span class="kp">true</span>
+
+<span class="c1"># good</span>
+<span class="n">enabled</span> <span class="o">=</span> <span class="kp">true</span> <span class="k">if</span> <span class="n">enabled</span><span class="o">.</span><span class="n">nil?</span>
+</code></pre></div>
+<h3 id="use-double-amps-to-check-for-existence">Use double-amps to check for existence</h3>
+
+<p>Use <code>&amp;&amp;=</code> to preprocess variables that may or may not exist. Using <code>&amp;&amp;=</code>
+will change the value only if it exists, removing the need to check its
+existence with <code>if</code>.</p>
+<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby"><span class="c1"># bad</span>
+<span class="k">if</span> <span class="n">something</span>
+  <span class="n">something</span> <span class="o">=</span> <span class="n">something</span><span class="o">.</span><span class="n">downcase</span>
+<span class="k">end</span>
+
+<span class="c1"># bad</span>
+<span class="n">something</span> <span class="o">=</span> <span class="n">something</span> <span class="p">?</span> <span class="n">something</span><span class="o">.</span><span class="n">downcase</span> <span class="p">:</span> <span class="kp">nil</span>
+
+<span class="c1"># ok</span>
+<span class="n">something</span> <span class="o">=</span> <span class="n">something</span><span class="o">.</span><span class="n">downcase</span> <span class="k">if</span> <span class="n">something</span>
+
+<span class="c1"># good</span>
+<span class="n">something</span> <span class="o">=</span> <span class="n">something</span> <span class="o">&amp;&amp;</span> <span class="n">something</span><span class="o">.</span><span class="n">downcase</span>
+
+<span class="c1"># better</span>
+<span class="n">something</span> <span class="o">&amp;&amp;=</span> <span class="n">something</span><span class="o">.</span><span class="n">downcase</span>
+</code></pre></div>
+<h3 id="avoid-outside-of-case">Avoid <code>===</code> outside of <code>case</code></h3>
+
+<p>Avoid explicit use of the case equality operator <code>===</code>. As its name implies
 it is meant to be used implicitly by <code>case</code> expressions and outside of them it
-yields some pretty confusing code.</li>
-</ul>
-<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby">  <span class="c1"># bad</span>
-  <span class="nb">Array</span> <span class="o">===</span> <span class="n">something</span>
-  <span class="p">(</span><span class="mi">1</span><span class="o">.</span><span class="n">.</span><span class="mi">100</span><span class="p">)</span> <span class="o">===</span> <span class="mi">7</span>
-  <span class="o">/</span><span class="n">something</span><span class="o">/</span> <span class="o">===</span> <span class="n">some_string</span>
+yields some pretty confusing code.</p>
+<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby"><span class="c1"># bad</span>
+<span class="nb">Array</span> <span class="o">===</span> <span class="n">something</span>
+<span class="p">(</span><span class="mi">1</span><span class="o">.</span><span class="n">.</span><span class="mi">100</span><span class="p">)</span> <span class="o">===</span> <span class="mi">7</span>
+<span class="o">/</span><span class="n">something</span><span class="o">/</span> <span class="o">===</span> <span class="n">some_string</span>
 
-  <span class="c1"># good</span>
-  <span class="n">something</span><span class="o">.</span><span class="n">is_a?</span><span class="p">(</span><span class="nb">Array</span><span class="p">)</span>
-  <span class="p">(</span><span class="mi">1</span><span class="o">.</span><span class="n">.</span><span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">include?</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
-  <span class="n">some_string</span> <span class="o">=~</span> <span class="sr">/something/</span>
+<span class="c1"># good</span>
+<span class="n">something</span><span class="o">.</span><span class="n">is_a?</span><span class="p">(</span><span class="nb">Array</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">1</span><span class="o">.</span><span class="n">.</span><span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">include?</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">some_string</span> <span class="o">=~</span> <span class="sr">/something/</span>
 </code></pre></div>
-<ul>
-<li><a name="eql"></a>
-Do not use <code>eql?</code> when using <code>==</code> will do. The stricter comparison semantics
-provided by <code>eql?</code> are rarely needed in practice.</li>
-</ul>
-<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby">  <span class="c1"># bad - eql? is the same as == for strings</span>
-  <span class="s2">&quot;ruby&quot;</span><span class="o">.</span><span class="n">eql?</span> <span class="n">some_str</span>
+<h3 id="use-not-eql">Use <code>==</code>, not <code>eql?</code></h3>
 
-  <span class="c1"># good</span>
-  <span class="s2">&quot;ruby&quot;</span> <span class="o">==</span> <span class="n">some_str</span>
-  <span class="mi">1</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="n">eql?</span> <span class="n">x</span> <span class="c1"># eql? makes sense here if want to differentiate between Fixnum and Float 1</span>
+<p>Do not use <code>eql?</code> when using <code>==</code> will do. The stricter comparison semantics
+provided by <code>eql?</code> are rarely needed in practice.</p>
+<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby"><span class="c1"># bad - eql? is the same as == for strings</span>
+<span class="s2">&quot;ruby&quot;</span><span class="o">.</span><span class="n">eql?</span> <span class="n">some_str</span>
+
+<span class="c1"># good</span>
+<span class="s2">&quot;ruby&quot;</span> <span class="o">==</span> <span class="n">some_str</span>
+<span class="mi">1</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="n">eql?</span> <span class="n">x</span> <span class="c1"># eql? makes sense here if want to differentiate between Fixnum and Float 1</span>
 </code></pre></div>
-<ul>
-<li><a name="no-cryptic-perlisms"></a>
-Avoid using Perl-style special variables (like <code>$:</code>, <code>$;</code>, etc. ). They are
+<h3 id="avoid-cryptic-perl-isms">Avoid cryptic Perl-isms</h3>
+
+<p>Avoid using Perl-style special variables (like <code>$:</code>, <code>$;</code>, etc. ). They are
 quite cryptic and their use in anything but one-liner scripts is discouraged.
-Use the human-friendly aliases provided by the <code>English</code> library.</li>
-</ul>
-<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby">  <span class="c1"># bad</span>
-  <span class="vg">$:</span><span class="o">.</span><span class="n">unshift</span> <span class="no">File</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="bp">__FILE__</span><span class="p">)</span>
+Use the human-friendly aliases provided by the <code>English</code> library.</p>
+<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby"><span class="c1"># bad</span>
+<span class="vg">$:</span><span class="o">.</span><span class="n">unshift</span> <span class="no">File</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="bp">__FILE__</span><span class="p">)</span>
 
-  <span class="c1"># good</span>
-  <span class="nb">require</span> <span class="s1">&#39;English&#39;</span>
-  <span class="vg">$LOAD_PATH</span><span class="o">.</span><span class="n">unshift</span> <span class="no">File</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="bp">__FILE__</span><span class="p">)</span>
+<span class="c1"># good</span>
+<span class="nb">require</span> <span class="s1">&#39;English&#39;</span>
+<span class="vg">$LOAD_PATH</span><span class="o">.</span><span class="n">unshift</span> <span class="no">File</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="bp">__FILE__</span><span class="p">)</span>
 </code></pre></div>
-<ul>
-<li><a name="parens-no-spaces"></a>
-Do not put a space between a method name and the opening parenthesis.</li>
-</ul>
-<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby">  <span class="c1"># bad</span>
-  <span class="n">f</span> <span class="p">(</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+<h3 id="no-spaces-before-parenthesis">No spaces before parenthesis</h3>
 
-  <span class="c1"># good</span>
-  <span class="n">f</span><span class="p">(</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+<p>Do not put a space between a method name and the opening parenthesis.</p>
+<div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby"><span class="c1"># bad</span>
+<span class="n">f</span> <span class="p">(</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+
+<span class="c1"># good</span>
+<span class="n">f</span><span class="p">(</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
 </code></pre></div>
+<h3 id="parenthesis-in-arguments">Parenthesis in arguments</h3>
+
+<p>If the first argument to a method begins with an open parenthesis, always
+use parentheses in the method invocation. For example, write <code>f((3 + 2) + 1)</code>.</p>
+
+<h3 id="always-warn-at-runtime">Always warn at runtime</h3>
+
+<p>Always run the Ruby interpreter with the <code>-w</code> option so it will warn you if
+you forget either of the rules above!</p>
+
 <ul>
-<li><p><a name="parens-as-args"></a>
-If the first argument to a method begins with an open parenthesis, always
-use parentheses in the method invocation. For example, write <code>f((3 + 2) + 1)</code>.</p></li>
-<li><p><a name="always-warn-at-runtime"></a>
-Always run the Ruby interpreter with the <code>-w</code> option so it will warn you if
-you forget either of the rules above!</p></li>
-<li><p><a name="no-nested-methods"></a>
+<li><a name="no-nested-methods"></a>
 Do not use nested method definitions, use lambda instead.
 Nested method definitions actually produce methods in the same scope
 (e.g. class) as the outer method. Furthermore, the &quot;nested method&quot; will be
-redefined every time the method containing its definition is invoked.</p></li>
+redefined every time the method containing its definition is invoked.</li>
 </ul>
 <div class="highlight"><pre><code class="language-Ruby" data-lang="Ruby">  <span class="c1"># bad</span>
   <span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
@@ -3016,7 +3013,7 @@ string&quot;</code> is the preferred way to create a symbol with spaces in it.</
 
 <h3 id="delimiting-literals-different">Delimiting literals <span class="label label--different">different</span></h3>
 
-<p>Prefer <code>{}</code> as delimiters for all <code>%</code> literals, except <code>%w</code>. </p>
+<p>Prefer <code>{}</code> as delimiters for all <code>%</code> literals, except <code>%w</code>.</p>
 
 <p>Since <code>%w</code> and <code>%W</code> are both used to create Arrays, using <code>[]</code> brackets is better in
   this case.</p>
@@ -3080,7 +3077,7 @@ code):</p>
 <p>Avoid using <code>method_missing</code> for metaprogramming because backtraces become
 messy, the behavior is not listed in <code>#methods</code>, and misspelled method calls
 might silently work, e.g. <code>nukes.launch_state = false</code>. Consider using
-delegation, proxy, or <code>define_method</code> instead. </p>
+delegation, proxy, or <code>define_method</code> instead.</p>
 
 <p>If you must use
 <code>method_missing</code>:</p>
@@ -3143,8 +3140,8 @@ private.</p>
 
 <h3 id="avoid-global-variables-where-possible">Avoid global variables where possible</h3>
 
-<p>It&#39;s very uncommon that a global variable is the right tool for what you&#39;re trying to 
-  achieve. </p>
+<p>It&#39;s very uncommon that a global variable is the right tool for what you&#39;re trying to
+  achieve.</p>
 
 <p>Does the variable you&#39;re storing have a logical namespace that it belongs to?
   Use module instance variables instead of global variables.</p>
@@ -3174,7 +3171,7 @@ private.</p>
 <h3 id="do-not-mutate-parameters">Do not mutate parameters</h3>
 
 <p>Do not mutate parameters unless that is the purpose of the method.</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># bad </span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># bad</span>
 <span class="k">def</span> <span class="nf">my_method</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
   <span class="n">better_string</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">gsub!</span><span class="p">(</span><span class="sr">/foo/</span><span class="p">,</span> <span class="s2">&quot;bar&quot;</span><span class="p">)</span>
   <span class="k">return</span> <span class="n">better_string</span>

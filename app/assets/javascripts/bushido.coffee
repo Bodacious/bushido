@@ -1,6 +1,4 @@
-
-jQuery ->
-
+initializeTableOfContents = ->
   $('#toc').toc(title: '<h2>Table of contents</h2>')
 
-  
+jQuery(initializeTableOfContents)
